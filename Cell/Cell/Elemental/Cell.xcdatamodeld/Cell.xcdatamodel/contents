@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Cell" representedClassName="Cell" syncable="YES" codeGenerationType="class">
+        <attribute name="cellId" attributeType="String" defaultValueString=""/>
+        <attribute name="cellSpell" attributeType="String" defaultValueString=""/>
+        <attribute name="firstDay" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="icon" optional="YES" attributeType="Binary"/>
+        <attribute name="iconUrl" optional="YES" attributeType="URI"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="chats" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Chat" inverseName="cell" inverseEntity="Chat"/>
+        <relationship name="soul" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Soul" inverseName="cells" inverseEntity="Soul"/>
+    </entity>
+    <entity name="Chat" representedClassName="Chat" syncable="YES" codeGenerationType="class">
+        <attribute name="alias" optional="YES" attributeType="String"/>
+        <attribute name="chatId" attributeType="String" defaultValueString=""/>
+        <attribute name="chatType" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="icon" optional="YES" attributeType="Binary"/>
+        <attribute name="iconUrl" optional="YES" attributeType="URI"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="cell" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cell" inverseName="chats" inverseEntity="Cell"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Message" inverseName="chat" inverseEntity="Message"/>
+    </entity>
+    <entity name="Message" representedClassName="Message" syncable="YES" codeGenerationType="class">
+        <attribute name="detail" optional="YES" attributeType="Binary"/>
+        <attribute name="extraInfo" optional="YES" attributeType="Binary"/>
+        <attribute name="msgId" attributeType="String" defaultValueString=""/>
+        <attribute name="msgOwnerId" attributeType="String" defaultValueString=""/>
+        <attribute name="msgType" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ownerIcon" optional="YES" attributeType="Binary"/>
+        <attribute name="ownerIconUrl" optional="YES" attributeType="URI"/>
+        <attribute name="ownerName" optional="YES" attributeType="String"/>
+        <attribute name="receivedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="receivedStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="senderIcon" optional="YES" attributeType="Binary"/>
+        <attribute name="senderIconUrl" optional="YES" attributeType="URI"/>
+        <attribute name="senderId" optional="YES" attributeType="String"/>
+        <attribute name="senderName" optional="YES" attributeType="String"/>
+        <attribute name="sentDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sentStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <relationship name="chat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chat" inverseName="messages" inverseEntity="Chat"/>
+    </entity>
+    <entity name="Soul" representedClassName="Soul" syncable="YES" codeGenerationType="class">
+        <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="phone" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="region" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="soulAccount" attributeType="String" defaultValueString=""/>
+        <attribute name="soulCode" attributeType="String" defaultValueString=""/>
+        <attribute name="soulId" attributeType="String" defaultValueString=""/>
+        <relationship name="cells" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Cell" inverseName="soul" inverseEntity="Cell"/>
+    </entity>
+    <elements>
+        <element name="Chat" positionX="-414.859375" positionY="-113.41015625" width="173.671875" height="163"/>
+        <element name="Message" positionX="-140.125" positionY="-47.02734375" width="128" height="58"/>
+        <element name="Cell" positionX="-386.41015625" positionY="-372.46875" width="128" height="163"/>
+        <element name="Soul" positionX="-602.6171875" positionY="-327.69140625" width="128" height="163"/>
+    </elements>
+</model>
