@@ -10,7 +10,7 @@
 		F19AF6AA26B7A84000C4145F /* CellApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AF6A926B7A84000C4145F /* CellApp.swift */; };
 		F19AF6AC26B7A84000C4145F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AF6AB26B7A84000C4145F /* ContentView.swift */; };
 		F19AF6AE26B7A84100C4145F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19AF6AD26B7A84100C4145F /* Assets.xcassets */; };
-		F19AF6B326B7A84100C4145F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AF6B226B7A84100C4145F /* Persistence.swift */; };
+		F19AF6B326B7A84100C4145F /* SourceCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AF6B226B7A84100C4145F /* SourceCenter.swift */; };
 		F19AF6B626B7A84100C4145F /* Cell.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F19AF6B426B7A84100C4145F /* Cell.xcdatamodeld */; };
 		F19AF6C126B7A84100C4145F /* CellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AF6C026B7A84100C4145F /* CellTests.swift */; };
 		F19AF6CC26B7A84100C4145F /* CellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AF6CB26B7A84100C4145F /* CellUITests.swift */; };
@@ -39,7 +39,7 @@
 		F19AF6A926B7A84000C4145F /* CellApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellApp.swift; sourceTree = "<group>"; };
 		F19AF6AB26B7A84000C4145F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F19AF6AD26B7A84100C4145F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F19AF6B226B7A84100C4145F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		F19AF6B226B7A84100C4145F /* SourceCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCenter.swift; sourceTree = "<group>"; };
 		F19AF6B526B7A84100C4145F /* Cell.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cell.xcdatamodel; sourceTree = "<group>"; };
 		F19AF6B726B7A84100C4145F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F19AF6BC26B7A84100C4145F /* CellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				F19AF6B426B7A84100C4145F /* Cell.xcdatamodeld */,
-				F19AF6B226B7A84100C4145F /* Persistence.swift */,
+				F19AF6B226B7A84100C4145F /* SourceCenter.swift */,
 			);
 			path = Elemental;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F19AF6B326B7A84100C4145F /* Persistence.swift in Sources */,
+				F19AF6B326B7A84100C4145F /* SourceCenter.swift in Sources */,
 				F19AF6B626B7A84100C4145F /* Cell.xcdatamodeld in Sources */,
 				F19AF6AC26B7A84000C4145F /* ContentView.swift in Sources */,
 				F19AF6AA26B7A84000C4145F /* CellApp.swift in Sources */,
