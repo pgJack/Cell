@@ -8,97 +8,136 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct HomeView: View {
         
     @Environment(\.managedObjectContext) private var viewContext
-    
-//    static func getAllNotes() -> NSFetchRequest<Chat> {
-//        let request: NSFetchRequest<Chat> =
-//        request.predicate = NSPredicate(format: "cellId = %d", )
-//        request.sortDescriptors = []
-//        return request
-//    }
-    
-    @FetchRequest(fetchRequest: Chat.fetchRequest())
-    private var chats: FetchedResults<Chat>
-//
-    var body: some View {
-        
-//        TabView {
-//            NavigationView {
-//                NavigationLink("切换的详细界面",destination: Text("这是个详细界面"))
-//                    .navigationBarTitle("界面切换")
-//            }
-//            .tabItem {
-//                Image(systemName: "star")
-//                Text("One")
-//            }
-//
-//            NavigationView {
-//                NavigationLink("切换的详细界面",destination: Text("这是个详细界面"))
-//                    .navigationBarTitle("界面切换")
-//            }
-//            .tabItem {
-//                Image(systemName: "star.fill")
-//                Text("Two")
-//            }
-//        }
-//
-        NavigationView {
-            List {
-                ForEach(chats) { chat in
-                    Text("chat at \((chat.messages?.sortedArray(using: [NSSortDescriptor.init(key: "sentDate", ascending: false)]).first as? Message)?.summary ?? "--")")
-                }
-                .onDelete(perform: deleteChats)
-            }.toolbar {
-                #if os(iOS)
-//                EditButton()
-                #endif
 
+    @FetchRequest(fetchRequest: Chat.defaultRequest)
+    var chats1: FetchedResults<Chat>
+    
+    @State var chats:[Chat] = Chat.finder()
+
+    var body: some View {
+        NavigationView {
+            
+            List {
+                ForEach(chats1) { chat in
+                    Text("Chat \(chat.name ?? "") \n lastMessageTime \(itemFormatter.string(from: chat.lastMessage?.msgSentDate ?? Date()))")
+                }.onDelete(perform: deleteChats)
+            }
+            
+//            List(filter.wrappedValue, id: \.self) { chat in
+//                Text("Chat \(chat.name ?? "") \n lastMessageTime \(itemFormatter.string(from: chat.lastMessage?.msgSentDate ?? Date()))")
+//            }
+//
+//            FilterList(filter: filter) { chat in
+//                Text("Chat \(chat.name ?? "") \n lastMessageTime \(itemFormatter.string(from: chat.lastMessage?.msgSentDate ?? Date()))")
+//            }
+//            .onDelete(perform: deleteChats)
+            
+//            List {
+//                ForEach(chats) { chat in
+//                    Text("Chat \(chat.name ?? "") \n lastMessageTime \(itemFormatter.string(from: chat.lastMessage?.msgSentDate ?? Date()))")
+//                }
+//                .onDelete(perform: deleteChats)
+//            }
+            .toolbar {
                 Button(action: addChat) {
                     Label("Add Item", systemImage: "plus")
                 }
             }
+            .navigationBarTitle("Home")
+        }.tabItem {
+            Image(systemName: "leaf")
+            Text("Home")
         }
     }
-
+    
     private func addChat() {
         withAnimation {
+            let chats = Chat.finder()
+            let chatIndex = Int(arc4random_uniform(100))
+            var chat: Chat?
+            var login = false
             
-//            let message = Message(context: viewContext)
-//            message.msgId = UUID().uuidString
-//            message.msgType = 0
-//            message.msgOwnerId = SourceCenter.shared.cell.cellId
-//
-//            let chat = Chat(context: viewContext)
-//            chat.chatId = UUID().uuidString
-//            chat.chatType = 0
-//            chat.messages = [message]
-//            chat.cell = SourceCenter.shared.cell
-//            print("create new Chat \(chat.chatId!) with Message \(message.msgId!)")
-        
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            if chats.count > chatIndex {
+                chat = chats[chatIndex]
+            } else {
+                
+                if let cell = UserCenter.cell {
+                    //存在cell
+                    chat = Chat(cid: UUID().uuidString,
+                                type: 0,
+                                of: cell)
+                } else if let soul = UserCenter.shared.soul {
+                    //不存在cell 存在soul
+                    let cell = Cell(cid: "\(soul.cells?.count ?? -1)",
+                         spell: "123",
+                         of: soul)
+                    cell.alive = true
+                    login = true
+                    chat = Chat(cid: UUID().uuidString,
+                                type: 0,
+                                of: cell)
+                } else {
+                    //不存在cell 不存在soul
+                    let soulId = UUID().uuidString
+                    let soul = Soul(sid: soulId,
+                                    account: "Noah",
+                                    code: "123")
+                    UserCenter.shared.soul = soul
+                    let cell = Cell(cid: "\(soul.cells?.count ?? -1)",
+                                    spell: "123",
+                                    of: soul)
+                    cell.alive = true
+                    login = true
+                    chat = Chat(cid: UUID().uuidString,
+                                type: 0,
+                                of: cell)
+                }
             }
+            
+            let message = Message(mid: UUID().uuidString,
+                    type: 0,
+                    ownerId: UUID().uuidString,
+                    sentTime: Date().timeIntervalSince1970,
+                    of: chat!)
+            
+            if let tChat = chat {
+                tChat.name = tChat.cellId
+                tChat.lastMessage = message
+                tChat.sortDate = message.msgSentDate
+                SourceManager.update()
+            }
+            
+//            if login {
+//                filter = FetchRequest(fetchRequest: Chat.defaultRequest, animation: .default)
+//            }
         }
     }
-
+    
     private func deleteChats(offsets: IndexSet) {
         withAnimation {
-            offsets.map { chats[$0] }.forEach(viewContext.delete)
+//            offsets.map { chats[$0] }.forEach(viewContext.delete)
+            SourceManager.update()
+        }
+    }
+}
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+struct ContentView: View {
+    
+    let viewContext = SourceManager.shared.container.viewContext
+    
+    var body: some View {
+        
+        TabView {
+            HomeView().environment(\.managedObjectContext, viewContext)            
+            NavigationView {
+                NavigationLink("Open the door",destination: Label("Add Item", systemImage: "plus"))
+                    .navigationBarTitle("World")
+            }.tabItem {
+                Image(systemName: "wind")
+                Text("World")
             }
         }
     }
