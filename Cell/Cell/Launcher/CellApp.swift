@@ -10,9 +10,11 @@ import SwiftUI
 @main
 struct CellApp: App {
     
+    let silkbag = Memory.silkbag
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LauncherView().environment(\.managedObjectContext, silkbag)
         }
     }
 }
