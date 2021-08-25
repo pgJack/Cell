@@ -9,10 +9,10 @@ import CoreData
 
 extension Memory {
         
-    static var silkbagTidy: Void { silkbag.sync() }
+    var silkbagTidy: Void { silkBag?.sync() }
         
-    static var silkbagBoxURL: URL {
-        let systemURL = SystemDirectory.applicationSupport
+    static func silkbagBoxURL(_ key: String) -> URL {
+        let systemURL = FileManager.appSupportFolder
         let folderURL = systemURL.appendingPathComponent("Source")
         if !FileManager.default.fileExists(atPath: folderURL.path) {
             do {
@@ -24,7 +24,7 @@ extension Memory {
                 CLog("error coredata create core \(nsError), \(nsError.userInfo)", kill: true)
             }
         }
-        return folderURL.appendingPathComponent("SourceCore.sqlite")
+        return folderURL.appendingPathComponent(key + ".sqlite")
     }
 }
 
@@ -48,7 +48,6 @@ protocol MemoryCatcher: NSManagedObject {
 }
 
 extension MemoryCatcher {
-    
     //MARK: 无条件请求
     static var pureRequest: NSFetchRequest<Self> {
         let request = NSFetchRequest<Self>(entityName: entity().managedObjectClassName)
@@ -57,7 +56,7 @@ extension MemoryCatcher {
     }
     
     //MARK: 查找数据
-    static func finder(_ request: NSFetchRequest<Self>, viewContext: NSManagedObjectContext = Memory.silkbag) -> [Self] {
+    static func finder(_ request: NSFetchRequest<Self>, viewContext: NSManagedObjectContext) -> [Self] {
         
         do {
             return try viewContext.fetch(request)

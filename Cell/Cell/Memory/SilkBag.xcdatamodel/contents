@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Cell" representedClassName="Cell" syncable="YES" codeGenerationType="class">
-        <attribute name="alive" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <attribute name="cellId" attributeType="String" defaultValueString=""/>
-        <attribute name="cellSpell" attributeType="String" defaultValueString=""/>
-        <attribute name="firstDay" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="iconUrl" optional="YES" attributeType="URI"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="soul" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Soul" inverseName="cells" inverseEntity="Soul"/>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="cellId"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
-    </entity>
     <entity name="Chat" representedClassName="Chat" syncable="YES" codeGenerationType="class">
         <attribute name="alias" optional="YES" attributeType="String"/>
         <attribute name="cellId" optional="YES" attributeType="String"/>
@@ -54,26 +40,8 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="Soul" representedClassName="Soul" syncable="YES" codeGenerationType="class">
-        <attribute name="awake" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="phone" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="region" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="sex" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <attribute name="soulAccount" attributeType="String" defaultValueString=""/>
-        <attribute name="soulCode" attributeType="String" defaultValueString=""/>
-        <attribute name="soulId" attributeType="String" defaultValueString=""/>
-        <relationship name="cells" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Cell" inverseName="soul" inverseEntity="Cell"/>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="soulId"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
-    </entity>
     <elements>
-        <element name="Cell" positionX="-645.6786499023438" positionY="-174.6966552734376" width="128" height="148"/>
         <element name="Chat" positionX="-428.2362060546875" positionY="-237.0993347167969" width="173.671875" height="208"/>
         <element name="Message" positionX="-150.9732666015625" positionY="-225.4188232421875" width="128" height="268"/>
-        <element name="Soul" positionX="-601.3350219726562" positionY="-438.286376953125" width="128" height="178"/>
     </elements>
 </model>
