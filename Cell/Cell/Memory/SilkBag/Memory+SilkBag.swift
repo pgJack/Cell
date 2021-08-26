@@ -40,31 +40,3 @@ extension NSManagedObjectContext {
         }
     }
 }
-
-//MARK: 默认查找器
-protocol MemoryCatcher: NSManagedObject {
-    
-    
-}
-
-extension MemoryCatcher {
-    //MARK: 无条件请求
-    static var pureRequest: NSFetchRequest<Self> {
-        let request = NSFetchRequest<Self>(entityName: entity().managedObjectClassName)
-        request.sortDescriptors = []
-        return request
-    }
-    
-    //MARK: 查找数据
-    static func finder(_ request: NSFetchRequest<Self>, viewContext: NSManagedObjectContext) -> [Self] {
-        
-        do {
-            return try viewContext.fetch(request)
-        } catch {
-            let nsError = error as NSError
-            let errorLog = "error coredata find \(nsError), \(nsError.userInfo)"
-            CLog(errorLog, kill: true)
-        }
-        return []
-    }
-}

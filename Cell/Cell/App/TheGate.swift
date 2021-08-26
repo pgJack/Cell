@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  TheGate.swift
 //  Beem
 //
 //  Created by Noah on 2021/8/9.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppManager: UIResponder, UIApplicationDelegate {
+class TheGate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
@@ -35,7 +35,7 @@ class AppManager: UIResponder, UIApplicationDelegate {
 }
 
 //MARK: App Guard
-extension AppManager {
+extension TheGate {
     func Jailer(_ application: UIApplication) {
         #if DEBUG
         #else

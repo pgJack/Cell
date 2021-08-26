@@ -14,6 +14,6 @@ autoreleasepool {
     #endif
     UIApplicationMain(
         CommandLine.argc, CommandLine.unsafeArgv,
-        nil, NSStringFromClass(AppManager.self)
+        nil, NSStringFromClass(TheGate.self)
     )
 }

@@ -9,15 +9,21 @@ import UIKit
 
 //MARK: App Life Cycle
 class Homeland: UIResponder, UIWindowSceneDelegate {
+    
+    static var homeWindow: UIWindow?
 
-    var window: UIWindow?
+    var window: UIWindow? {
+        didSet {
+            Homeland.homeWindow = window
+        }
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.backgroundColor = .white
-        window.rootViewController = UINavigationController(rootViewController: UIViewController())
+        window.backgroundColor = .dynamicColor(.white, .black)
+        window.rootViewController = BaseNavigationController(rootViewController: HomeViewController())
         self.window = window
 
         window.makeKeyAndVisible()

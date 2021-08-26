@@ -7,6 +7,42 @@
 
 import UIKit
 
+//MARK: Appearence
+public var SkinStyle: UIUserInterfaceStyle {
+    get { ScrollContext.appearence }
+    set {
+        ScrollContext.appearence = newValue
+        Homeland.homeWindow?.overrideUserInterfaceStyle = newValue
+    }
+}
+
+public extension UIColor {
+    
+    class var theme: UIColor { dynamicColor(purple_7100FF, black_1E1E1E) }
+    
+    //黑色
+    class var black_282828: UIColor { 0x282828.color() }
+    class var black_1E1E1E: UIColor { 0x1E1E1E.color() }
+    //灰色
+    class var gary_DAE0E3: UIColor { 0xDAE0E3.color() }
+    class var gary_8C959E: UIColor { 0x8C959E.color() }
+    //紫色
+    class var purple_7100FF: UIColor { 0x7100FF.color()}
+    //蓝色
+    class var blue_0A84FF: UIColor { 0x0A84FF.color()}
+    //红色
+    class var red_F03636: UIColor { 0xF03636.color() }
+}
+
+//MARK: Language
+private let kDefaultLanguageCode = "zh-Hanz"
+
+public var LanguageCode: String? { ScrollContext.language?.first ?? kDefaultLanguageCode }
+
+public func Translate(_ key: String) -> String {
+    NSLocalizedString(key, tableName: "Cell", comment: "")
+}
+
 //MARK: Lay out
 var kIsPad: Bool { UIDevice().userInterfaceIdiom == .pad }
 

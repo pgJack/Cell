@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension Int {
-    public func color(_ alpha: CGFloat = 1) -> UIColor {
+public extension Int {
+    func color(_ alpha: CGFloat = 1) -> UIColor {
         let redValue = CGFloat((self & 0xFF0000) >> 16)/255.0
         let greenValue = CGFloat((self & 0xFF00) >> 8)/255.0
         let blueValue = CGFloat(self & 0xFF)/255.0
@@ -17,7 +17,6 @@ extension Int {
     }
 }
 
-@objc
 public extension UIColor {
     
     class func dynamicColor(_ light: UIColor, _ dark: UIColor) -> UIColor {

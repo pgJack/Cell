@@ -8,7 +8,7 @@
 import CoreData
 
 //MARK: 神
-extension Soul: MemoryCatcher {
+extension Soul: SilkBagCatcher {
     
     @discardableResult
     convenience init(_ viewContext: NSManagedObjectContext,
@@ -23,7 +23,7 @@ extension Soul: MemoryCatcher {
 }
 
 //MARK: 容
-extension Cell: MemoryCatcher {
+extension Cell: SilkBagCatcher {
     
     @discardableResult
     convenience init(_ viewContext: NSManagedObjectContext,
@@ -38,7 +38,7 @@ extension Cell: MemoryCatcher {
 }
 
 //MARK: 话
-extension Chat: MemoryCatcher {
+extension Chat: SilkBagCatcher {
     
     @discardableResult
     convenience init(_ viewContext: NSManagedObjectContext,
@@ -53,7 +53,7 @@ extension Chat: MemoryCatcher {
 }
 
 //MARK: 讯
-extension Message: MemoryCatcher {
+extension Message: SilkBagCatcher {
     
     @discardableResult
     convenience init(_ viewContext: NSManagedObjectContext,
