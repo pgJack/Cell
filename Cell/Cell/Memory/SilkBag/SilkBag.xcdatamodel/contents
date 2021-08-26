@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Chat" representedClassName="Chat" syncable="YES" codeGenerationType="class">
+        <attribute name="alias" optional="YES" attributeType="String"/>
+        <attribute name="cellId" optional="YES" attributeType="String"/>
+        <attribute name="chatId" attributeType="String" defaultValueString=""/>
+        <attribute name="chatType" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="iconUrl" optional="YES" attributeType="URI"/>
+        <attribute name="lastMsgId" optional="YES" attributeType="String"/>
+        <attribute name="lastMsgSenderId" optional="YES" attributeType="String"/>
+        <attribute name="lastMsgSentDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastMsgSummary" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="unreadCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="chatId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Message" representedClassName="Message" syncable="YES" codeGenerationType="class">
+        <attribute name="chatId" optional="YES" attributeType="String"/>
+        <attribute name="chatType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="detail" optional="YES" attributeType="Binary"/>
+        <attribute name="extraInfo" optional="YES" attributeType="Binary"/>
+        <attribute name="msgId" attributeType="String" defaultValueString=""/>
+        <attribute name="msgOwnerId" attributeType="String" defaultValueString=""/>
+        <attribute name="msgSentDate" attributeType="Date" defaultDateTimeInterval="-31647600" usesScalarValueType="NO"/>
+        <attribute name="msgType" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="receivedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="receivedStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="senderIconUrl" optional="YES" attributeType="URI"/>
+        <attribute name="senderId" optional="YES" attributeType="String"/>
+        <attribute name="senderName" optional="YES" attributeType="String"/>
+        <attribute name="sentStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="msgId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="Chat" positionX="-428.2362060546875" positionY="-237.0993347167969" width="173.671875" height="208"/>
+        <element name="Message" positionX="-150.9732666015625" positionY="-225.4188232421875" width="128" height="268"/>
+    </elements>
+</model>
