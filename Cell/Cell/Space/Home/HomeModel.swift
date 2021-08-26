@@ -14,7 +14,7 @@ enum HomeType {
 
 //MARK: Right Item Type
 enum HomeRightItemType {
-    case search, more, meetsSettings
+    case search, more, publish
 }
 
 //MARK: Tab
@@ -30,28 +30,21 @@ struct HomeTab: Equatable {
     let controller: BaseViewController
     let rightItemTypes: (HomeRightItemType?, HomeRightItemType?)
     
-    static var messages: HomeTab {
-        HomeTab(icon: UIImage(named: "tab_message_normal"),
-                seletedIcon: UIImage(named: "tab_message_selected"),
-                name: Translate("Messages"),
+    static var chatTab: [HomeTab] {
+        [HomeTab(icon: UIImage(systemName: "house"),
+                seletedIcon: UIImage(systemName: "house.fill"),
+                name: Translate("Home"),
                 controller: BaseViewController(),
-                rightItemTypes: (.search, .more))
+                rightItemTypes: (.search, .more)),
+        HomeTab(icon: UIImage(systemName: "map"),
+                seletedIcon: UIImage(systemName: "map.fill"),
+                name: Translate("World"),
+                controller: BaseViewController(),
+                rightItemTypes: (nil, .publish))]
     }
     
-    static var meets: HomeTab {
-        HomeTab(icon: UIImage(named: "tab_work_normal"),
-                seletedIcon: UIImage(named: "tab_work_selected"),
-                name: Translate("Meets"),
-                controller: BaseViewController(),
-                rightItemTypes: (nil, .meetsSettings))
-    }
-    
-    static var contacts: HomeTab {
-        HomeTab(icon: UIImage(named: "tab_contacts_normal"),
-                seletedIcon: UIImage(named: "tab_contacts_selected"),
-                name: Translate("Contacts"),
-                controller: BaseViewController(),
-                rightItemTypes: (.search, .more))
+    static var workTab: [HomeTab] {
+        []
     }
 }
 
@@ -64,11 +57,12 @@ struct HomeSidebarAction {
     let icon: UIImage?
     
     static var chatActions: [HomeSidebarAction] {
-        [HomeSidebarAction(name: Translate("My Account"), icon: UIImage.init(named: "profile_account_icon")),
-         HomeSidebarAction(name: Translate("Chat Settings"), icon: UIImage.init(named: "profile_chat_icon")),
-         HomeSidebarAction(name: Translate("Notifications"), icon: UIImage.init(named: "profile_noti_icon")),
-         HomeSidebarAction(name: Translate("Privacy"), icon: UIImage.init(named: "profile_privacy_icon")),
-         HomeSidebarAction(name: Translate("Contact Us"), icon: UIImage.init(named: "profile_feedback_icon")),
-         HomeSidebarAction(name: Translate("About"), icon: UIImage.init(named: "profile_about_icon"))]
+        let configuration = UIImage.SymbolConfiguration(pointSize: 23, weight:.regular)
+        return [HomeSidebarAction(name: Translate("My Account"), icon: UIImage.init(systemName: "person", withConfiguration: configuration)),
+                HomeSidebarAction(name: Translate("Chat Settings"), icon: UIImage.init(systemName: "pencil.and.outline", withConfiguration: configuration)),
+                HomeSidebarAction(name: Translate("Notifications"), icon: UIImage.init(systemName: "antenna.radiowaves.left.and.right", withConfiguration: configuration)),
+                HomeSidebarAction(name: Translate("Privacy"), icon: UIImage.init(systemName: "lock", withConfiguration: configuration)),
+                HomeSidebarAction(name: Translate("Contact Us"), icon: UIImage.init(systemName: "captions.bubble", withConfiguration: configuration)),
+                HomeSidebarAction(name: Translate("About"), icon: UIImage.init(systemName: "info.circle", withConfiguration: configuration))]
     }
 }

@@ -19,36 +19,37 @@ extension HomeNavigationBar {
         addSubview(rightItemA)
         addSubview(rightItemB)
         
+        let horizonMargin: CGFloat = 8
+        
         moreView.snp.makeConstraints { maker in
-            maker.leading.equalToSuperview().offset(6)
+            maker.leading.equalToSuperview().offset(horizonMargin)
             maker.centerY.equalToSuperview()
-            maker.width.equalTo(9)
-            maker.height.equalTo(16)
+            maker.width.equalTo(25)
         }
         
         avatarView.snp.makeConstraints { maker in
-            maker.leading.equalTo(moreView.snp.trailing).offset(6)
+            maker.leading.equalTo(moreView.snp.trailing).offset(horizonMargin)
             maker.centerY.equalToSuperview()
             maker.width.height.equalTo(32)
         }
         
         nameLabel.snp.makeConstraints { maker in
-            maker.leading.equalTo(avatarView.snp.trailing).offset(8)
+            maker.leading.equalTo(avatarView.snp.trailing).offset(horizonMargin)
             maker.centerY.equalToSuperview()
         }
         
         netIndicator.snp.makeConstraints { maker in
-            maker.leading.equalTo(nameLabel.snp.trailing).offset(8)
+            maker.leading.equalTo(nameLabel.snp.trailing).offset(horizonMargin)
             maker.centerY.equalToSuperview()
         }
         
         leftItemA.snp.makeConstraints { maker in
             maker.leading.top.bottom.equalToSuperview()
-            maker.trailing.equalTo(rightItemA.snp.leading).offset(-16)
+            maker.trailing.equalTo(rightItemA.snp.leading).offset(-horizonMargin)
         }
         rightItemA.snp.makeConstraints { maker in
             maker.top.bottom.equalToSuperview()
-            maker.trailing.equalTo(rightItemB.snp.leading).offset(-4)
+            maker.trailing.equalTo(rightItemB.snp.leading).offset(-horizonMargin / 2)
             maker.width.equalTo(40)
         }
         rightItemB.snp.makeConstraints { maker in

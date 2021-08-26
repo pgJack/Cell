@@ -15,9 +15,9 @@ extension HomeSidebarCell {
         contentView.addSubview(nameLabel)
         
         iconView.snp.makeConstraints { maker in
-            maker.leading.equalToSuperview().offset(48)
+            maker.leading.equalToSuperview().offset(40)
             maker.centerY.equalToSuperview()
-            maker.width.height.equalTo(20)
+            maker.width.height.equalTo(23)
         }
         
         nameLabel.snp.makeConstraints { maker in
@@ -60,17 +60,18 @@ extension HomeSidebar {
             maker.width.height.equalTo(84)
         }
         avatarView.snp.makeConstraints { maker in
-            maker.leading.equalToSuperview().offset(48)
+            maker.leading.equalToSuperview().offset(40)
             maker.top.equalTo(preferencePanel.safeAreaLayoutGuide.snp.top).offset(20)
             maker.width.height.equalTo(72)
         }
         nameLabel.snp.makeConstraints { maker in
             maker.top.equalTo(avatarView.snp.bottom).offset(8)
-            maker.leading.equalTo(avatarView)
+            maker.leading.equalToSuperview().offset(40)
+            maker.trailing.lessThanOrEqualTo(muteButton.snp.leading)
             maker.height.equalTo(29)
         }
         editIconView.snp.makeConstraints { maker in
-            maker.leading.equalTo(nameLabel.snp.trailing).offset(48)
+            maker.leading.equalTo(nameLabel.snp.trailing).offset(8)
             maker.centerY.equalTo(nameLabel)
             maker.width.height.equalTo(17.5)
         }
@@ -170,6 +171,9 @@ extension HomeSidebar {
     }
     
     func dismiss(_ animated: Bool) {
+        
+        guard superview != nil else { return }
+        
         preferencePanel.snp.updateConstraints { maker in
             maker.leading.equalToSuperview().offset(originalPanelX)
         }

@@ -58,6 +58,8 @@ extension HomeViewController {
                 maker.bottom.equalTo(homeTabBar.snp.top)
             }
         }
+        
+        view.bringSubviewToFront(homeTabBar)
     }
     
     func initialRightItem(_ item:UIButton?, with type: HomeRightItemType?) {
@@ -68,20 +70,22 @@ extension HomeViewController {
         
         rightItem.removeTarget(self, action: #selector(didClickSearch), for: .touchUpInside)
         rightItem.removeTarget(self, action: #selector(didClickMore), for: .touchUpInside)
-        rightItem.removeTarget(self, action: #selector(didClickMeetsSettings), for: .touchUpInside)
+        rightItem.removeTarget(self, action: #selector(didClickPublish), for: .touchUpInside)
+        
+        let configuration = UIImage.SymbolConfiguration(pointSize: 20, weight:.regular)
         
         switch type {
         case .search:
-            rightItem.setImage(UIImage.init(named: "nav_item_icon_0"), for: .normal)
+            rightItem.setImage(UIImage(systemName: "magnifyingglass", withConfiguration: configuration), for: .normal)
             rightItem.addTarget(self, action: #selector(didClickSearch), for: .touchUpInside)
             
         case .more:
-            rightItem.setImage(UIImage.init(named: "nav_item_icon_1"), for: .normal)
+            rightItem.setImage(UIImage(systemName: "ellipsis", withConfiguration: configuration), for: .normal)
             rightItem.addTarget(self, action: #selector(didClickMore), for: .touchUpInside)
             
-        case .meetsSettings:
-            rightItem.setImage(UIImage.init(named: "meeting_setting_icon"), for: .normal)
-            rightItem.addTarget(self, action: #selector(didClickMeetsSettings), for: .touchUpInside)
+        case .publish:
+            rightItem.setImage(UIImage(systemName: "message", withConfiguration: configuration), for: .normal)
+            rightItem.addTarget(self, action: #selector(didClickPublish), for: .touchUpInside)
             
         case .none:
             rightItem.setImage(nil, for: .normal)
@@ -97,7 +101,7 @@ extension HomeViewController {
     @objc func didClickMore() {
         
     }
-    @objc func didClickMeetsSettings() {
+    @objc func didClickPublish() {
         
     }
 }

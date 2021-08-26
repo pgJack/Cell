@@ -50,9 +50,9 @@ extension HomeViewModel {
             var tabs = [HomeTab]()
             switch type {
             case .chat:
-                tabs = [HomeTab.messages, HomeTab.meets, HomeTab.contacts]
+                tabs = HomeTab.chatTab
             case .work:
-                tabs = [HomeTab.messages, HomeTab.meets]
+                tabs = HomeTab.workTab
             }
             home?.initialHomeTabs(tabs)
             self.currentTab.accept(tabs.first)
@@ -77,7 +77,8 @@ extension HomeViewModel {
             
             home?.homeTabBar.items.forEach { item in
                 item.iconView.image = tTab == item.homeTab ? item.homeTab?.seletedIcon : item.homeTab?.icon
-                item.titleLabel.textColor = tTab == item.homeTab ? .theme : .gary_8C959E
+                item.iconView.tintColor = tTab == item.homeTab ? .theme_white_dy : .gray_8C959E
+                item.titleLabel.textColor = tTab == item.homeTab ? .theme_white_dy : .gray_8C959E
             }
             
             home?.children.forEach { child in
@@ -141,10 +142,8 @@ extension HomeViewModel {
         home.homeSidebar.actionTableView.rx.modelSelected(HomeSidebarAction.self).bind { _ in
         }.disposed(by: disposeBag)
         
-        home.homeSidebar.lightButton.isSelected = SkinStyle == .light
-        home.homeSidebar.darkButton.isSelected = SkinStyle == .dark
-        home.homeSidebar.autoButton.isSelected = SkinStyle == .unspecified
-        
+        home.homeSidebar.updateSkinButtons(SkinStyle)
+  
         [home.homeSidebar.lightButton.rx.tap.map { _ in
             .light
         }, home.homeSidebar.darkButton.rx.tap.map { _ in
@@ -153,9 +152,7 @@ extension HomeViewModel {
             .unspecified
         }].forEach{
             $0.bind(onNext: { [weak home] (mode: UIUserInterfaceStyle) in
-                home?.homeSidebar.lightButton.isSelected = mode == .light
-                home?.homeSidebar.darkButton.isSelected = mode == .dark
-                home?.homeSidebar.autoButton.isSelected = mode == .unspecified
+                home?.homeSidebar.updateSkinButtons(mode)
                 SkinStyle = mode
             }).disposed(by: disposeBag)
         }

@@ -9,7 +9,14 @@ import UIKit
 
 //MARK: Appearence
 public var SkinStyle: UIUserInterfaceStyle {
-    get { ScrollContext.appearence }
+    get {
+        let stype = ScrollContext.appearence
+        if let currentStyle = Homeland.homeWindow?.overrideUserInterfaceStyle,
+           currentStyle != stype {
+            Homeland.homeWindow?.overrideUserInterfaceStyle = stype
+        }
+        return stype
+    }
     set {
         ScrollContext.appearence = newValue
         Homeland.homeWindow?.overrideUserInterfaceStyle = newValue
@@ -17,15 +24,18 @@ public var SkinStyle: UIUserInterfaceStyle {
 }
 
 public extension UIColor {
-    
-    class var theme: UIColor { dynamicColor(purple_7100FF, black_1E1E1E) }
+
+    class var theme: UIColor { purple_7100FF }
+
+    class var theme_black_dy: UIColor { dynamicColor(purple_7100FF, black_1E1E1E) }
+    class var theme_white_dy: UIColor { dynamicColor(purple_7100FF, .white) }
     
     //黑色
     class var black_282828: UIColor { 0x282828.color() }
     class var black_1E1E1E: UIColor { 0x1E1E1E.color() }
     //灰色
-    class var gary_DAE0E3: UIColor { 0xDAE0E3.color() }
-    class var gary_8C959E: UIColor { 0x8C959E.color() }
+    class var gray_DAE0E3: UIColor { 0xDAE0E3.color() }
+    class var gray_8C959E: UIColor { 0x8C959E.color() }
     //紫色
     class var purple_7100FF: UIColor { 0x7100FF.color()}
     //蓝色

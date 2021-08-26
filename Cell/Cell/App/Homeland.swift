@@ -23,6 +23,7 @@ class Homeland: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         window.backgroundColor = .dynamicColor(.white, .black)
+        window.tintColor = .theme_black_dy
         window.rootViewController = BaseNavigationController(rootViewController: HomeViewController())
         self.window = window
 

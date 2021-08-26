@@ -12,11 +12,17 @@ class HomeNavigationBar: UIView {
 
     lazy var moreView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "nav_profile_more")
+        let configuration = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
+        imageView.image = UIImage(systemName: "list.bullet", withConfiguration: configuration)
         return imageView
     }()
     
-    lazy var avatarView = UIImageView()
+    lazy var avatarView: UIImageView = {
+        let imageView = UIImageView()
+        let configuration = UIImage.SymbolConfiguration(pointSize: 32, weight: .regular)
+        imageView.image = UIImage(systemName: "person.crop.circle.fill", withConfiguration: configuration)
+        return imageView
+    }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -56,7 +62,6 @@ class HomeTabBar: UIView {
     
     lazy var topLine: UIView = {
         let view = UIView()
-        view.backgroundColor = .dynamicColor(.gary_DAE0E3, .black_282828)
         return view
     }()
     lazy var tabsView = UIView()
@@ -66,6 +71,10 @@ class HomeTabBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .dynamicColor(.white, .black_282828)
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width:0, height:-1)
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 0.1
         barLayout()
     }
     

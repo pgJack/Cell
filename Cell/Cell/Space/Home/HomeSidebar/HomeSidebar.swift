@@ -18,6 +18,7 @@ class HomeSidebarCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         
+        iconView.tintColor = .theme_white_dy
         nameLabel.font = UIFont.systemFont(ofSize: 17)
         layoutCell()
     }
@@ -43,22 +44,31 @@ class HomeSidebar: UIView {
     
     lazy var muteButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage.init(named: "profile_notice_icon"), for: .normal)
-        button.setImage(UIImage.init(named: "profile_disturb_icon"), for: .selected)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 20)
+        button.setImage(UIImage(systemName: "speaker.slash", withConfiguration: configuration), for: .normal)
+        button.setImage(UIImage(systemName: "speaker.slash.fill", withConfiguration: configuration), for: .selected)
         return button
     }()
     
-    lazy var avatarView = UIImageView()
+    lazy var avatarView: UIImageView = {
+        let imageView = UIImageView()
+        let configuration = UIImage.SymbolConfiguration(pointSize: 70, weight: .regular)
+        imageView.image = UIImage(systemName: "person.crop.circle.fill", withConfiguration: configuration)
+        imageView.tintColor = .theme_white_dy
+        return imageView
+    }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 24)
+        label.text = "Edit your name ++++++"
         return label
     }()
     
     lazy var editIconView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage.init(named: "profile_edit_icon")
+        let configuration = UIImage.SymbolConfiguration(pointSize: 17, weight: .bold)
+        imageView.image = UIImage(systemName: "pencil", withConfiguration: configuration)
         return imageView
     }()
     
@@ -75,40 +85,43 @@ class HomeSidebar: UIView {
     
     lazy var bottomLine: UIView = {
         let view = UIView()
-        view.backgroundColor = .dynamicColor(.gary_DAE0E3, .black_282828)
+        view.backgroundColor = .dynamicColor(.gray_DAE0E3, .gray_8C959E)
         return view
     }()
     
     lazy var lightButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 10)
+        button.titleLabel?.font = .systemFont(ofSize: 12)
         button.setTitle("Light", for: .normal)
-        button.setTitleColor(.gary_8C959E , for: .normal)
-        button.setTitleColor(.theme, for: .selected)
-        button.setImage(UIImage(named: "profile_light_icon"), for: .normal)
-        button.setImage(UIImage(named: "profile_light_icon_h"), for: .selected)
+        button.setTitleColor(.gray_8C959E , for: .normal)
+        button.setTitleColor(.theme_white_dy, for: .selected)
+        button.setImage(UIImage(systemName: "sun.max"), for: .normal)
+        button.setImage(UIImage(systemName: "sun.max.fill"), for: .selected)
+        button.titleEdgeInsets = .init(top: 0, left: 8, bottom: 0, right: 0)
         return button
     }()
     
     lazy var darkButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 10)
+        button.titleLabel?.font = .systemFont(ofSize: 12)
         button.setTitle("Dark", for: .normal)
-        button.setTitleColor(.gary_8C959E , for: .normal)
-        button.setTitleColor(.theme, for: .selected)
-        button.setImage(UIImage(named: "profile_dark_icon"), for: .normal)
-        button.setImage(UIImage(named: "profile_dark_icon_h"), for: .selected)
+        button.setTitleColor(.gray_8C959E , for: .normal)
+        button.setTitleColor(.theme_white_dy, for: .selected)
+        button.setImage(UIImage(systemName: "moon"), for: .normal)
+        button.setImage(UIImage(systemName: "moon.fill"), for: .selected)
+        button.titleEdgeInsets = .init(top: 0, left: 8, bottom: 0, right: 0)
         return button
     }()
     
     lazy var autoButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 10)
+        button.titleLabel?.font = .systemFont(ofSize: 12)
         button.setTitle("Auto", for: .normal)
-        button.setTitleColor(.gary_8C959E , for: .normal)
-        button.setTitleColor(.theme, for: .selected)
-        button.setImage(UIImage(named: "profile_auto_icon"), for: .normal)
-        button.setImage(UIImage(named: "profile_auto_icon_h"), for: .selected)
+        button.setTitleColor(.gray_8C959E , for: .normal)
+        button.setTitleColor(.theme_white_dy, for: .selected)
+        button.setImage(UIImage(systemName: "bolt.badge.a"), for: .normal)
+        button.setImage(UIImage(systemName: "bolt.badge.a.fill"), for: .selected)
+        button.titleEdgeInsets = .init(top: 0, left: 8, bottom: 0, right: 0)
         return button
     }()
     
@@ -119,4 +132,15 @@ class HomeSidebar: UIView {
         addGestureRecognizer(pan)
         return pan
     }()
+    
+    func updateSkinButtons(_ mode: UIUserInterfaceStyle) {
+        lightButton.isSelected = mode == .light
+        lightButton.tintColor = mode == .light ? .theme_white_dy : .gray_8C959E
+        
+        darkButton.isSelected = mode == .dark
+        darkButton.tintColor = mode == .dark ? .theme_white_dy : .gray_8C959E
+
+        autoButton.isSelected = mode == .unspecified
+        autoButton.tintColor = mode == .unspecified ? .theme_white_dy : .gray_8C959E
+    }
 }
