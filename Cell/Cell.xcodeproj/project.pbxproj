@@ -25,6 +25,18 @@
 		B0DC5A7526BECF70001FF29A /* SilkBag+Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC5A7426BECF70001FF29A /* SilkBag+Entity.swift */; };
 		B0DC5A7726BEDED4001FF29A /* SilkBag+Catcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC5A7626BEDED4001FF29A /* SilkBag+Catcher.swift */; };
 		B0DC5A7926BEF25B001FF29A /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC5A7826BEF25B001FF29A /* GlobalConstant.swift */; };
+		F16A549026D88AB500ED522F /* UIView+Easy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A548F26D88AB500ED522F /* UIView+Easy.swift */; };
+		F16A54A326D8BF6800ED522F /* UIViewController+TopMostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A549826D8BF6800ED522F /* UIViewController+TopMostViewController.swift */; };
+		F16A54A426D8BF6800ED522F /* NavigatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A549926D8BF6800ED522F /* NavigatorProtocol.swift */; };
+		F16A54A526D8BF6800ED522F /* UIViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A549A26D8BF6800ED522F /* UIViewControllerType.swift */; };
+		F16A54A626D8BF6800ED522F /* NavigatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A549B26D8BF6800ED522F /* NavigatorDelegate.swift */; };
+		F16A54A726D8BF6800ED522F /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A549C26D8BF6800ED522F /* Navigator.swift */; };
+		F16A54A826D8BF6800ED522F /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A549E26D8BF6800ED522F /* URLConvertible.swift */; };
+		F16A54A926D8BF6800ED522F /* URLMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A549F26D8BF6800ED522F /* URLMatcher.swift */; };
+		F16A54AA26D8BF6800ED522F /* URLPatchComponentMatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54A026D8BF6800ED522F /* URLPatchComponentMatchResult.swift */; };
+		F16A54AB26D8BF6800ED522F /* URLPathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54A126D8BF6800ED522F /* URLPathComponent.swift */; };
+		F16A54AC26D8BF6800ED522F /* URLMatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54A226D8BF6800ED522F /* URLMatchResult.swift */; };
+		F16A54AE26D8BFDF00ED522F /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54AD26D8BFDF00ED522F /* Compass.swift */; };
 		F197451526D745A8005A4E51 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197451326D745A8005A4E51 /* BaseNavigationController.swift */; };
 		F197452026D745C5005A4E51 /* HomeSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197451A26D745C5005A4E51 /* HomeSidebar.swift */; };
 		F197452126D745C5005A4E51 /* HomeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197451B26D745C5005A4E51 /* HomeBar.swift */; };
@@ -86,6 +98,18 @@
 		B0DC5A7426BECF70001FF29A /* SilkBag+Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SilkBag+Entity.swift"; sourceTree = "<group>"; };
 		B0DC5A7626BEDED4001FF29A /* SilkBag+Catcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SilkBag+Catcher.swift"; sourceTree = "<group>"; };
 		B0DC5A7826BEF25B001FF29A /* GlobalConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
+		F16A548F26D88AB500ED522F /* UIView+Easy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Easy.swift"; sourceTree = "<group>"; };
+		F16A549826D8BF6800ED522F /* UIViewController+TopMostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+TopMostViewController.swift"; sourceTree = "<group>"; };
+		F16A549926D8BF6800ED522F /* NavigatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatorProtocol.swift; sourceTree = "<group>"; };
+		F16A549A26D8BF6800ED522F /* UIViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerType.swift; sourceTree = "<group>"; };
+		F16A549B26D8BF6800ED522F /* NavigatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatorDelegate.swift; sourceTree = "<group>"; };
+		F16A549C26D8BF6800ED522F /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		F16A549E26D8BF6800ED522F /* URLConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
+		F16A549F26D8BF6800ED522F /* URLMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLMatcher.swift; sourceTree = "<group>"; };
+		F16A54A026D8BF6800ED522F /* URLPatchComponentMatchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLPatchComponentMatchResult.swift; sourceTree = "<group>"; };
+		F16A54A126D8BF6800ED522F /* URLPathComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLPathComponent.swift; sourceTree = "<group>"; };
+		F16A54A226D8BF6800ED522F /* URLMatchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLMatchResult.swift; sourceTree = "<group>"; };
+		F16A54AD26D8BFDF00ED522F /* Compass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compass.swift; sourceTree = "<group>"; };
 		F197451326D745A8005A4E51 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		F197451A26D745C5005A4E51 /* HomeSidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSidebar.swift; sourceTree = "<group>"; };
 		F197451B26D745C5005A4E51 /* HomeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBar.swift; sourceTree = "<group>"; };
@@ -169,6 +193,7 @@
 				B0297A3826D6C98B00404D44 /* Any+JSON.swift */,
 				B0297A3626D6C98B00404D44 /* Any+Regular.swift */,
 				B0297A3926D6C98B00404D44 /* Color+Easy.swift */,
+				F16A548F26D88AB500ED522F /* UIView+Easy.swift */,
 				B0297A3526D6C98B00404D44 /* Date+Easy.swift */,
 				B0297A3426D6C98B00404D44 /* FileManager+Easy.swift */,
 			);
@@ -204,6 +229,55 @@
 				B0DC5A7826BEF25B001FF29A /* GlobalConstant.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		F16A549626D8BF3D00ED522F /* Compass */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54AD26D8BFDF00ED522F /* Compass.swift */,
+			);
+			path = Compass;
+			sourceTree = "<group>";
+		};
+		F16A549726D8BF6800ED522F /* URLNavigator */ = {
+			isa = PBXGroup;
+			children = (
+				F16A549826D8BF6800ED522F /* UIViewController+TopMostViewController.swift */,
+				F16A549926D8BF6800ED522F /* NavigatorProtocol.swift */,
+				F16A549A26D8BF6800ED522F /* UIViewControllerType.swift */,
+				F16A549B26D8BF6800ED522F /* NavigatorDelegate.swift */,
+				F16A549C26D8BF6800ED522F /* Navigator.swift */,
+			);
+			path = URLNavigator;
+			sourceTree = "<group>";
+		};
+		F16A549D26D8BF6800ED522F /* URLMatcher */ = {
+			isa = PBXGroup;
+			children = (
+				F16A549E26D8BF6800ED522F /* URLConvertible.swift */,
+				F16A549F26D8BF6800ED522F /* URLMatcher.swift */,
+				F16A54A026D8BF6800ED522F /* URLPatchComponentMatchResult.swift */,
+				F16A54A126D8BF6800ED522F /* URLPathComponent.swift */,
+				F16A54A226D8BF6800ED522F /* URLMatchResult.swift */,
+			);
+			path = URLMatcher;
+			sourceTree = "<group>";
+		};
+		F16A54AF26D8C8CC00ED522F /* Storeroom */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54B026D8C8E200ED522F /* Router */,
+			);
+			path = Storeroom;
+			sourceTree = "<group>";
+		};
+		F16A54B026D8C8E200ED522F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F16A549D26D8BF6800ED522F /* URLMatcher */,
+				F16A549726D8BF6800ED522F /* URLNavigator */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		F197451126D745A8005A4E51 /* BaseController */ = {
@@ -277,10 +351,12 @@
 			isa = PBXGroup;
 			children = (
 				B0B1141926D0AFC6000873EB /* App */,
-				B0297A1A26D6BECC00404D44 /* Space */,
 				B0DC5A7A26BF0A64001FF29A /* Global */,
-				B0B1142C26D10AC3000873EB /* Component */,
+				B0297A1A26D6BECC00404D44 /* Space */,
+				F16A549626D8BF3D00ED522F /* Compass */,
 				F19AF6DE26B835FE00C4145F /* Memory */,
+				B0B1142C26D10AC3000873EB /* Component */,
+				F16A54AF26D8C8CC00ED522F /* Storeroom */,
 				F19AF6DF26B8369A00C4145F /* Asset */,
 			);
 			path = Cell;
@@ -470,27 +546,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16A54A326D8BF6800ED522F /* UIViewController+TopMostViewController.swift in Sources */,
 				F197453F26D76DDC005A4E51 /* ScrollContext.swift in Sources */,
 				F197451526D745A8005A4E51 /* BaseNavigationController.swift in Sources */,
 				B0297A3226D6C52300404D44 /* SilkBag.xcdatamodel in Sources */,
 				F197452126D745C5005A4E51 /* HomeBar.swift in Sources */,
+				F16A54A826D8BF6800ED522F /* URLConvertible.swift in Sources */,
+				F16A54A726D8BF6800ED522F /* Navigator.swift in Sources */,
 				F197452526D745C5005A4E51 /* HomeViewModel.swift in Sources */,
 				B05E944C26D68A9300581666 /* guard.c in Sources */,
 				B0297A3B26D6C98B00404D44 /* Date+Easy.swift in Sources */,
 				F197454926D77BAF005A4E51 /* UIResponder+RxSwift.swift in Sources */,
+				F16A54AE26D8BFDF00ED522F /* Compass.swift in Sources */,
 				F19AF6B326B7A84100C4145F /* Memory.swift in Sources */,
+				F16A54A526D8BF6800ED522F /* UIViewControllerType.swift in Sources */,
 				F197452326D745C5005A4E51 /* HomeViewController.swift in Sources */,
 				B0297A3F26D6C98B00404D44 /* Color+Easy.swift in Sources */,
 				B05E947326D6B08E00581666 /* Homeland.swift in Sources */,
 				F197452226D745C5005A4E51 /* HomeBarLayout.swift in Sources */,
+				F16A54A926D8BF6800ED522F /* URLMatcher.swift in Sources */,
 				B0297A3C26D6C98B00404D44 /* Any+Regular.swift in Sources */,
+				F16A54AA26D8BF6800ED522F /* URLPatchComponentMatchResult.swift in Sources */,
+				F16A549026D88AB500ED522F /* UIView+Easy.swift in Sources */,
 				F197454726D7782A005A4E51 /* BaseViewController.swift in Sources */,
 				B0297A3A26D6C98B00404D44 /* FileManager+Easy.swift in Sources */,
 				B0297A3E26D6C98B00404D44 /* Any+JSON.swift in Sources */,
+				F16A54A426D8BF6800ED522F /* NavigatorProtocol.swift in Sources */,
 				B05E944F26D68B3D00581666 /* TheGate.swift in Sources */,
+				F16A54AC26D8BF6800ED522F /* URLMatchResult.swift in Sources */,
 				B0B1142526D0BCDF000873EB /* Memory+SilkBag.swift in Sources */,
 				B0DC5A7926BEF25B001FF29A /* GlobalConstant.swift in Sources */,
+				F16A54A626D8BF6800ED522F /* NavigatorDelegate.swift in Sources */,
 				F197453926D75F3C005A4E51 /* HomeSidebarLayout.swift in Sources */,
+				F16A54AB26D8BF6800ED522F /* URLPathComponent.swift in Sources */,
 				B0297A3126D6C52300404D44 /* Core.xcdatamodel in Sources */,
 				B0DC5A7726BEDED4001FF29A /* SilkBag+Catcher.swift in Sources */,
 				B05E944D26D68A9300581666 /* main.swift in Sources */,

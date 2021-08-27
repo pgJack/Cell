@@ -18,7 +18,7 @@ struct HomeViewModel {
     let currentTab: BehaviorRelay<HomeTab?> = BehaviorRelay(value: nil)
     
     //Net Status
-    let netStatus = BehaviorRelay(value: false)
+    let loseConnect = BehaviorRelay(value: false)
     
     //Badge
     let unreadMessageCount = BehaviorRelay(value: 0)
@@ -32,20 +32,7 @@ extension HomeViewModel {
         let disposeBag = home.disposeBag
         
         //MARK: DataSource
-        home.homeSidebar.actionTableView.register(HomeSidebarCell.self, forCellReuseIdentifier: kSidebarCellID)
-        homeType.asDriver().map { (type)->[HomeSidebarAction] in
-            switch type {
-            case .chat:
-                return HomeSidebarAction.chatActions
-            case .work:
-                return [HomeSidebarAction]()
-            }
-        }.drive(home.homeSidebar.actionTableView.rx.items(cellIdentifier: kSidebarCellID, cellType: HomeSidebarCell.self)) { tableView, model, cell in
-            cell.nameLabel.text = model.name
-            cell.iconView.image = model.icon
-        }.disposed(by: disposeBag)
-        
-        homeType.asDriver().drive(onNext: { [weak home] type in
+        homeType.asDriver().drive(onNext: { type in
                         
             var tabs = [HomeTab]()
             switch type {
@@ -54,47 +41,71 @@ extension HomeViewModel {
             case .work:
                 tabs = HomeTab.workTab
             }
-            home?.initialHomeTabs(tabs)
-            self.currentTab.accept(tabs.first)
+            home.initialHomeTabs(tabs)
+            currentTab.accept(tabs.first)
         }).disposed(by: disposeBag)
         
-        //MARK: Navigation Bar
-        currentTab.asDriver().drive(onNext: { [weak home] tab in
+        currentTab.asDriver().drive(onNext: { tab in
             
             guard let tTab = tab else {
                 return
             }
             
-            home?.homeNavigationBar.nameLabel.text = tTab.name
+            home.homeNavigationBar.nameLabel.text = tTab.name
+            home.homeNavigationBar.rightItemTypes = tTab.rightItemTypes
             
-            let types = tTab.rightItemTypes
-            
-            let itemA = home?.homeNavigationBar.rightItemA
-            let itemB = home?.homeNavigationBar.rightItemB
-            
-            home?.initialRightItem(itemA, with: types.0)
-            home?.initialRightItem(itemB, with: types.1)
-            
-            home?.homeTabBar.items.forEach { item in
+            home.homeTabBar.items.forEach { item in
                 item.iconView.image = tTab == item.homeTab ? item.homeTab?.seletedIcon : item.homeTab?.icon
                 item.iconView.tintColor = tTab == item.homeTab ? .theme_white_dy : .gray_8C959E
                 item.titleLabel.textColor = tTab == item.homeTab ? .theme_white_dy : .gray_8C959E
             }
-            
-            home?.children.forEach { child in
+            home.children.forEach { child in
                 child.view.isHidden = child != tTab.controller
             }
             
         }).disposed(by: disposeBag)
         
-        home.homeNavigationBar.leftItemA.rx.tap.bind { [weak home] _ in
-            home?.homeSidebar.show(true)
+        bindNavigationBar(home.homeNavigationBar)
+        bindTabBar(home.homeTabBar)
+        
+        home.view.addGestureRecognizer(home.homeSidebar.edgePan)
+        bindSidebar(home.homeSidebar)
+    }
+    
+    func showSidebar(_ home: HomeViewController) { }
+    
+    //MARK: Bind Navigation Bar
+    func bindNavigationBar(_ navigationBar: HomeNavigationBar) {
+        
+        let disposeBag = navigationBar.disposeBag
+        
+        navigationBar.leftItemA.rx.tap.bind { _ in
+            Compass.navigator?.open(Compass.Map.HomeMap.sidebarShow.actionPath)
         }.disposed(by: disposeBag)
-
-        netStatus.asDriver().drive(home.homeNavigationBar.netIndicator.rx.isAnimating).disposed(by: disposeBag)
-
-        //MARK: Tab Bar
-        for item in home.homeTabBar.items {
+        
+        navigationBar.rightItemA.rx.tap.bind {
+            guard let compassPath = navigationBar.rightItemTypes.0?.compassPath else {
+                return
+            }
+            Compass.navigator?.open(compassPath)
+        }.disposed(by: disposeBag)
+        
+        navigationBar.rightItemB.rx.tap.bind {
+            guard let compassPath = navigationBar.rightItemTypes.1?.compassPath else {
+                return
+            }
+            Compass.navigator?.open(compassPath)
+        }.disposed(by: disposeBag)
+        
+        loseConnect.asDriver().drive(navigationBar.netIndicator.rx.isAnimating).disposed(by: disposeBag)
+    }
+    
+    //MARK: Bind Tab Bar
+    func bindTabBar(_ tabBar: HomeTabBar) {
+        
+        let disposeBag = tabBar.disposeBag
+        
+        for item in tabBar.items {
                         
 //            if item.homeTab?.controller is MessagesController {
 //                unreadMessageCount.asDriver().drive(onNext: {
@@ -113,46 +124,63 @@ extension HomeViewModel {
                 item.homeTab
             }.bind(to: currentTab).disposed(by: disposeBag)
         }
-                
-        //MARK: Sidebar
-        home.homeSidebar.dismissButton.rx.tap.bind { [weak home] _ in
-            home?.homeSidebar.dismiss(true)
+    }
+    
+    //MARK: Bind Sidebar
+    func bindSidebar(_ sidebar: HomeSidebar) {
+        
+        let disposeBag = sidebar.disposeBag
+        
+        homeType.asDriver().map { (type)->[HomeSidebarAction] in
+            switch type {
+            case .chat:
+                return HomeSidebarAction.chatActions
+            case .work:
+                return [HomeSidebarAction]()
+            }
+        }.drive(sidebar.actionTableView.rx.items(cellIdentifier: kSidebarCellID, cellType: HomeSidebarCell.self)) { tableView, model, cell in
+            cell.nameLabel.text = model.name
+            cell.iconView.image = model.icon
+            cell.iconView.tintColor = model.tint
         }.disposed(by: disposeBag)
-                
-        home.view.addGestureRecognizer(home.homeSidebar.edgePan)
-        home.homeSidebar.edgePan.edges = .left
-        home.homeSidebar.edgePan.rx.event.bind { [weak home] recognizer in
+        
+        sidebar.dismissButton.rx.tap.bind { _ in
+            Compass.navigator?.open(Compass.Map.HomeMap.sidebarHidden.actionPath)
+        }.disposed(by: disposeBag)
+        
+        sidebar.edgePan.edges = .left
+        sidebar.edgePan.rx.event.bind { [weak sidebar] recognizer in
             
-            let point = recognizer.translation(in: home?.view)
+            let point = recognizer.translation(in: recognizer.view)
             let finish = recognizer.state == .ended ||
                 recognizer.state == .cancelled ||
                 recognizer.state == .failed
-            home?.homeSidebar.move(point.x + 20, isOpen: true, isFinish: finish)
+            sidebar?.move(point.x + 20, isOpen: true, isFinish: finish)
         }.disposed(by: disposeBag)
         
-        home.homeSidebar.contentPan.rx.event.bind { [weak home] recognizer in
+        sidebar.contentPan.rx.event.bind { [weak sidebar] recognizer in
             
-            let point = recognizer.translation(in: home?.homeSidebar)
+            let point = recognizer.translation(in: sidebar)
             let finish = recognizer.state == .ended ||
                 recognizer.state == .cancelled ||
                 recognizer.state == .failed
-            home?.homeSidebar.move(point.x, isOpen: false, isFinish: finish)
+            sidebar?.move(point.x, isOpen: false, isFinish: finish)
         }.disposed(by: disposeBag)
         
-        home.homeSidebar.actionTableView.rx.modelSelected(HomeSidebarAction.self).bind { _ in
+        sidebar.actionTableView.rx.modelSelected(HomeSidebarAction.self).bind { _ in
         }.disposed(by: disposeBag)
         
-        home.homeSidebar.updateSkinButtons(SkinStyle)
+        sidebar.updateSkinButtons(SkinStyle)
   
-        [home.homeSidebar.lightButton.rx.tap.map { _ in
+        [sidebar.lightButton.rx.tap.map { _ in
             .light
-        }, home.homeSidebar.darkButton.rx.tap.map { _ in
+        }, sidebar.darkButton.rx.tap.map { _ in
             .dark
-        }, home.homeSidebar.autoButton.rx.tap.map { _ in
+        }, sidebar.autoButton.rx.tap.map { _ in
             .unspecified
         }].forEach{
-            $0.bind(onNext: { [weak home] (mode: UIUserInterfaceStyle) in
-                home?.homeSidebar.updateSkinButtons(mode)
+            $0.bind(onNext: { [weak sidebar] (mode: UIUserInterfaceStyle) in
+                sidebar?.updateSkinButtons(mode)
                 SkinStyle = mode
             }).disposed(by: disposeBag)
         }

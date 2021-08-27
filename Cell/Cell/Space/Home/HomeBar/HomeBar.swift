@@ -43,6 +43,13 @@ class HomeNavigationBar: UIView {
     lazy var rightItemA = UIButton()
     lazy var rightItemB = UIButton()
     
+    var rightItemTypes: (HomeRightItemType?, HomeRightItemType?) = (nil, nil) {
+        didSet {
+            rightItemA.setImage(rightItemTypes.0?.systemIcon, for: .normal)
+            rightItemB.setImage(rightItemTypes.1?.systemIcon, for: .normal)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         barLayout()
@@ -71,10 +78,7 @@ class HomeTabBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .dynamicColor(.white, .black_282828)
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width:0, height:-1)
-        layer.shadowRadius = 10
-        layer.shadowOpacity = 0.1
+        shadow3D()
         barLayout()
     }
     

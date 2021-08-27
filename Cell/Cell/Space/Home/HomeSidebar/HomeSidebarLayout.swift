@@ -112,14 +112,12 @@ extension HomeSidebar {
     
     func addToWindow() {
         if superview == nil {
-            Homeland.homeWindow?.addSubview(self)
+            Compass.ocean?.addSubview(self)
             snp.remakeConstraints { maker in
                 maker.leading.trailing.top.bottom.equalToSuperview()
             }
-
+            
             if !isInitial {
-                sidebarLayout()
-                layoutIfNeeded()
                 isInitial = true
             }
         }
@@ -128,6 +126,11 @@ extension HomeSidebar {
     func move(_ offset: CGFloat, isOpen: Bool, isFinish: Bool) {
         
         addToWindow()
+        
+        if isOpen {
+            contentPan.isEnabled = false
+            dismissButton.isUserInteractionEnabled = false
+        }
         
         isHidden = false
         
@@ -148,6 +151,9 @@ extension HomeSidebar {
             } else {
                 dismiss(true)
             }
+            
+            contentPan.isEnabled = true
+            dismissButton.isUserInteractionEnabled = true
         }
     }
     

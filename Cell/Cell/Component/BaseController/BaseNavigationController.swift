@@ -15,7 +15,7 @@ class BaseNavigationController: UINavigationController {
     
     func defaultBarStyle() {
         navigationBar.shadowImage = UIImage()
-        navigationBar.barTintColor = .dynamicColor(.purple_7100FF, .black_1E1E1E)
+        navigationBar.barTintColor = .theme_black_dy
         navigationBar.tintColor = .white
         navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationBar.isTranslucent = false

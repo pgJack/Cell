@@ -7,29 +7,37 @@
 
 import UIKit
 
+//MARK: Voice Control
+public var MuteStatus: Bool {
+    get { ScrollContext.mute }
+    set { ScrollContext.mute = newValue }
+}
+
 //MARK: Appearence
 public var SkinStyle: UIUserInterfaceStyle {
     get {
         let stype = ScrollContext.appearence
-        if let currentStyle = Homeland.homeWindow?.overrideUserInterfaceStyle,
+        if let currentStyle = Compass.ocean?.overrideUserInterfaceStyle,
            currentStyle != stype {
-            Homeland.homeWindow?.overrideUserInterfaceStyle = stype
+            Compass.ocean?.overrideUserInterfaceStyle = stype
         }
         return stype
     }
     set {
         ScrollContext.appearence = newValue
-        Homeland.homeWindow?.overrideUserInterfaceStyle = newValue
+        Compass.ocean?.overrideUserInterfaceStyle = newValue
     }
 }
 
 public extension UIColor {
 
-    class var theme: UIColor { purple_7100FF }
+    class var theme: UIColor { white_FFDEAD }
 
-    class var theme_black_dy: UIColor { dynamicColor(purple_7100FF, black_1E1E1E) }
-    class var theme_white_dy: UIColor { dynamicColor(purple_7100FF, .white) }
+    class var theme_black_dy: UIColor { dynamicColor(theme, black_1E1E1E) }
+    class var theme_white_dy: UIColor { dynamicColor(theme, .white) }
     
+    //白色
+    class var white_FFDEAD: UIColor { 0x6495ED.color() }
     //黑色
     class var black_282828: UIColor { 0x282828.color() }
     class var black_1E1E1E: UIColor { 0x1E1E1E.color() }

@@ -18,7 +18,6 @@ class HomeSidebarCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         
-        iconView.tintColor = .theme_white_dy
         nameLabel.font = UIFont.systemFont(ofSize: 17)
         layoutCell()
     }
@@ -32,7 +31,14 @@ class HomeSidebar: UIView {
     
     let panelWidth: CGFloat = 288
     var originalPanelX: CGFloat { -panelWidth }
-    var isInitial = false
+    var isInitial = false {
+        didSet {
+            
+            sidebarLayout()
+            layoutIfNeeded()
+            shadow3D()
+        }
+    }
 
     lazy var dismissButton = UIButton()
     
@@ -45,8 +51,8 @@ class HomeSidebar: UIView {
     lazy var muteButton: UIButton = {
         let button = UIButton()
         let configuration = UIImage.SymbolConfiguration(pointSize: 20)
-        button.setImage(UIImage(systemName: "speaker.slash", withConfiguration: configuration), for: .normal)
-        button.setImage(UIImage(systemName: "speaker.slash.fill", withConfiguration: configuration), for: .selected)
+        button.setImage(UIImage(systemName: "bell.fill", withConfiguration: configuration), for: .normal)
+        button.setImage(UIImage(systemName: "bell.slash", withConfiguration: configuration), for: .selected)
         return button
     }()
     
@@ -54,14 +60,13 @@ class HomeSidebar: UIView {
         let imageView = UIImageView()
         let configuration = UIImage.SymbolConfiguration(pointSize: 70, weight: .regular)
         imageView.image = UIImage(systemName: "person.crop.circle.fill", withConfiguration: configuration)
-        imageView.tintColor = .theme_white_dy
+        imageView.tintColor = .gray_DAE0E3
         return imageView
     }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 24)
-        label.text = "Edit your name ++++++"
         return label
     }()
     
@@ -80,6 +85,7 @@ class HomeSidebar: UIView {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
+        tableView.register(HomeSidebarCell.self, forCellReuseIdentifier: kSidebarCellID)
         return tableView
     }()
     

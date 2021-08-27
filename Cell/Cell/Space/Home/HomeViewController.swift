@@ -61,47 +61,4 @@ extension HomeViewController {
         
         view.bringSubviewToFront(homeTabBar)
     }
-    
-    func initialRightItem(_ item:UIButton?, with type: HomeRightItemType?) {
-        
-        guard let rightItem = item else {
-            return
-        }
-        
-        rightItem.removeTarget(self, action: #selector(didClickSearch), for: .touchUpInside)
-        rightItem.removeTarget(self, action: #selector(didClickMore), for: .touchUpInside)
-        rightItem.removeTarget(self, action: #selector(didClickPublish), for: .touchUpInside)
-        
-        let configuration = UIImage.SymbolConfiguration(pointSize: 20, weight:.regular)
-        
-        switch type {
-        case .search:
-            rightItem.setImage(UIImage(systemName: "magnifyingglass", withConfiguration: configuration), for: .normal)
-            rightItem.addTarget(self, action: #selector(didClickSearch), for: .touchUpInside)
-            
-        case .more:
-            rightItem.setImage(UIImage(systemName: "ellipsis", withConfiguration: configuration), for: .normal)
-            rightItem.addTarget(self, action: #selector(didClickMore), for: .touchUpInside)
-            
-        case .publish:
-            rightItem.setImage(UIImage(systemName: "message", withConfiguration: configuration), for: .normal)
-            rightItem.addTarget(self, action: #selector(didClickPublish), for: .touchUpInside)
-            
-        case .none:
-            rightItem.setImage(nil, for: .normal)
-        }
-    }
-}
-
-//MARK: Right Item Action
-extension HomeViewController {
-    @objc func didClickSearch() {
-        
-    }
-    @objc func didClickMore() {
-        
-    }
-    @objc func didClickPublish() {
-        
-    }
 }

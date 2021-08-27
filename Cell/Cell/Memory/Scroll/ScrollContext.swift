@@ -9,6 +9,13 @@ import UIKit
 
 public struct ScrollContext {
     
+    //静音
+    private static let _mute = "cell_mute"
+    static var mute: Bool {
+        set { Memory.coreScroll.set(newValue, forKey: _mute) }
+        get { Memory.coreScroll.bool(forKey: _mute) }
+    }
+    
     //主题样式
     private static let _appearenceKey = "cell_appearence"
     static var appearence: UIUserInterfaceStyle {

@@ -9,25 +9,18 @@ import UIKit
 
 //MARK: App Life Cycle
 class Homeland: UIResponder, UIWindowSceneDelegate {
-    
-    static var homeWindow: UIWindow?
-
+        
     var window: UIWindow? {
         didSet {
-            Homeland.homeWindow = window
+            Compass.ocean = window
         }
     }
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let window = UIWindow(windowScene: windowScene)
-        window.backgroundColor = .dynamicColor(.white, .black)
-        window.tintColor = .theme_black_dy
-        window.rootViewController = BaseNavigationController(rootViewController: HomeViewController())
-        self.window = window
-
-        window.makeKeyAndVisible()
+        window = UIWindow(windowScene: windowScene)
+        window?.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
