@@ -20,6 +20,9 @@
 		B05E944D26D68A9300581666 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E944B26D68A9300581666 /* main.swift */; };
 		B05E944F26D68B3D00581666 /* TheGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E944E26D68B3D00581666 /* TheGate.swift */; };
 		B05E947326D6B08E00581666 /* Homeland.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E947226D6B08E00581666 /* Homeland.swift */; };
+		B07E3C5E26D9DBFD003C119B /* Compass+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E3C5D26D9DBFD003C119B /* Compass+Home.swift */; };
+		B07E3C6026D9E04A003C119B /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E3C5F26D9E04A003C119B /* GlobalSettings.swift */; };
+		B07E3C6226D9E093003C119B /* GlobalTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E3C6126D9E093003C119B /* GlobalTools.swift */; };
 		B0B1141C26D0B102000873EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B1141E26D0B102000873EB /* LaunchScreen.storyboard */; };
 		B0B1142526D0BCDF000873EB /* Memory+SilkBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1142426D0BCDF000873EB /* Memory+SilkBag.swift */; };
 		B0DC5A7526BECF70001FF29A /* SilkBag+Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC5A7426BECF70001FF29A /* SilkBag+Entity.swift */; };
@@ -91,6 +94,9 @@
 		B05E944B26D68A9300581666 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B05E944E26D68B3D00581666 /* TheGate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheGate.swift; sourceTree = "<group>"; };
 		B05E947226D6B08E00581666 /* Homeland.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homeland.swift; sourceTree = "<group>"; };
+		B07E3C5D26D9DBFD003C119B /* Compass+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Compass+Home.swift"; sourceTree = "<group>"; };
+		B07E3C5F26D9E04A003C119B /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
+		B07E3C6126D9E093003C119B /* GlobalTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTools.swift; sourceTree = "<group>"; };
 		B0B1141D26D0B102000873EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0B1142026D0B108000873EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B0B1142126D0B380000873EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 			children = (
 				F197451D26D745C5005A4E51 /* HomeViewController.swift */,
 				F197451F26D745C5005A4E51 /* HomeViewModel.swift */,
+				B07E3C5D26D9DBFD003C119B /* Compass+Home.swift */,
 				F197451E26D745C5005A4E51 /* HomeModel.swift */,
 				F197453726D75F22005A4E51 /* HomeSidebar */,
 				F197451926D745C5005A4E51 /* HomeBar */,
@@ -227,6 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				B0DC5A7826BEF25B001FF29A /* GlobalConstant.swift */,
+				B07E3C5F26D9E04A003C119B /* GlobalSettings.swift */,
+				B07E3C6126D9E093003C119B /* GlobalTools.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -552,7 +561,9 @@
 				B0297A3226D6C52300404D44 /* SilkBag.xcdatamodel in Sources */,
 				F197452126D745C5005A4E51 /* HomeBar.swift in Sources */,
 				F16A54A826D8BF6800ED522F /* URLConvertible.swift in Sources */,
+				B07E3C6026D9E04A003C119B /* GlobalSettings.swift in Sources */,
 				F16A54A726D8BF6800ED522F /* Navigator.swift in Sources */,
+				B07E3C5E26D9DBFD003C119B /* Compass+Home.swift in Sources */,
 				F197452526D745C5005A4E51 /* HomeViewModel.swift in Sources */,
 				B05E944C26D68A9300581666 /* guard.c in Sources */,
 				B0297A3B26D6C98B00404D44 /* Date+Easy.swift in Sources */,
@@ -580,6 +591,7 @@
 				F197453926D75F3C005A4E51 /* HomeSidebarLayout.swift in Sources */,
 				F16A54AB26D8BF6800ED522F /* URLPathComponent.swift in Sources */,
 				B0297A3126D6C52300404D44 /* Core.xcdatamodel in Sources */,
+				B07E3C6226D9E093003C119B /* GlobalTools.swift in Sources */,
 				B0DC5A7726BEDED4001FF29A /* SilkBag+Catcher.swift in Sources */,
 				B05E944D26D68A9300581666 /* main.swift in Sources */,
 				F197452426D745C5005A4E51 /* HomeModel.swift in Sources */,

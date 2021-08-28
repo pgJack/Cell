@@ -91,7 +91,7 @@ class HomeSidebar: UIView {
     
     lazy var bottomLine: UIView = {
         let view = UIView()
-        view.backgroundColor = .dynamicColor(.gray_DAE0E3, .gray_8C959E)
+        view.backgroundColor = .opaqueSeparator
         return view
     }()
     

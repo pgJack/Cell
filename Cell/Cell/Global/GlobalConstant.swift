@@ -7,28 +7,7 @@
 
 import UIKit
 
-//MARK: Voice Control
-public var MuteStatus: Bool {
-    get { ScrollContext.mute }
-    set { ScrollContext.mute = newValue }
-}
-
-//MARK: Appearence
-public var SkinStyle: UIUserInterfaceStyle {
-    get {
-        let stype = ScrollContext.appearence
-        if let currentStyle = Compass.ocean?.overrideUserInterfaceStyle,
-           currentStyle != stype {
-            Compass.ocean?.overrideUserInterfaceStyle = stype
-        }
-        return stype
-    }
-    set {
-        ScrollContext.appearence = newValue
-        Compass.ocean?.overrideUserInterfaceStyle = newValue
-    }
-}
-
+//MARK: Common Color
 public extension UIColor {
 
     class var theme: UIColor { white_FFDEAD }
@@ -69,17 +48,3 @@ var kScreenHeight: CGFloat { UIScreen.main.bounds.height }
 
 var kNavigationBarHeight: CGFloat { 44 }
 var kTabBarHeight: CGFloat { 49 }
-
-//MARK: 日志
-public func CLog(_ debug: Any, _ file: String = #file , _ function: String = #function, _ line: Int = #line, _ time: Date = Date(), kill: Bool = false) {
-    #if DEBUG
-    let fileName = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
-    let threadFlag = Thread.isMainThread ? "Main" : String.init(format: "%p", Thread.current)
-    let log = "\(time) [\(threadFlag)] \(fileName):\(function) [\(line)] : \(debug)"
-    if kill {
-        fatalError(log)
-    } else {
-        print(log)
-    }
-    #endif
-}
