@@ -85,7 +85,6 @@ class HomeSidebar: UIView {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
-        tableView.register(HomeSidebarCell.self, forCellReuseIdentifier: kSidebarCellID)
         return tableView
     }()
     

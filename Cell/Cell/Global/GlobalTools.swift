@@ -9,7 +9,7 @@ import Foundation
 
 //MARK: Alert
 func Alert(title: String, message: String, confirmText:String = Translate("OK")) {
-    Compass.navigator?.open(Compass.Map.alert.oceanPath+"?title="+title+"&message="+message+"&confirm="+confirmText)
+    CellSkipper.navigator?.open(Compass.alert.oceanPath+"?title="+title+"&message="+message+"&confirm="+confirmText)
 }
 
 //MARK: Log

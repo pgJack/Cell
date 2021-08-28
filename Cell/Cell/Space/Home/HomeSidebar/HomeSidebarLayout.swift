@@ -112,7 +112,7 @@ extension HomeSidebar {
     
     func addToWindow() {
         if superview == nil {
-            Compass.ocean?.addSubview(self)
+            CellSkipper.ocean?.addSubview(self)
             snp.remakeConstraints { maker in
                 maker.leading.trailing.top.bottom.equalToSuperview()
             }
@@ -121,6 +121,7 @@ extension HomeSidebar {
                 isInitial = true
             }
         }
+        actionTableView.reloadData()
     }
     
     func move(_ offset: CGFloat, isOpen: Bool, isFinish: Bool) {

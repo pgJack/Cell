@@ -22,6 +22,7 @@ extension Soul {
         set {
             awakedSoul?.awake = false
             newValue?.awake = true
+            Memory.coreBag.sync()
         }
     }
 }
@@ -30,45 +31,48 @@ extension Cell {
     
     static func alivedFilter(of soul: Soul?) -> NSFetchRequest<Cell> {
         
-        let request = pureRequest
-
         guard let soulId = soul?.soulId else {
-            request.fetchLimit = 0
-            return request
+            return emptyRequest
         }
         
+        let request = pureRequest
         let ruler = NSPredicate.init(format: "soul.soulId == %@ AND alive == %d", soulId, true)
         request.predicate = ruler
         request.returnsObjectsAsFaults = false
         return request
     }
     
-    static func alivedCell(of soul: Soul?) -> Cell? {
-        finder(alivedFilter(of: soul), viewContext: Memory.coreBag).first
+    static func alivedCells(of soul: Soul?) -> [Cell] {
+        finder(alivedFilter(of: soul), viewContext: Memory.coreBag)
     }
     
     static var alivedCell: Cell? {
-        get { alivedCell(of: Soul.awakedSoul) }
+        get { alivedCells(of: Soul.awakedSoul).first }
         set {
             guard let cells = newValue?.soul?.cells else { return }
             cells.forEach { value in
                 guard let cell = value as? Cell else { return }
                 cell.alive = cell.cellId == newValue?.cellId
             }
+            Memory.coreBag.sync()
         }
+    }
+    
+    func frozen() {
+        alive = false
+        Memory.coreBag.sync()
     }
 }
 
 extension Chat {
     
     static func relatedFilter(of cell: Cell?) -> NSFetchRequest<Chat> {
-        let request = pureRequest
         
         guard let cellId = cell?.cellId else {
-            request.fetchLimit = 0
-            return request
+            return emptyRequest
         }
         
+        let request = pureRequest
         //正则
         let ruler = NSPredicate.init(format: "cellId == %@", cellId)
         request.predicate = ruler
@@ -96,14 +100,12 @@ extension Chat {
 extension Message {
     
     static func relatedFilter(of chat: Chat?, fetch offset: Int = 0, _ limit: Int = 20) -> NSFetchRequest<Message> {
-        
-        let request = pureRequest
-        
+                
         guard let chatId = chat?.chatId else {
-            request.fetchLimit = 0
-            return request
+            return emptyRequest
         }
         
+        let request = pureRequest
         //正则
         let ruler = NSPredicate.init(format: "chatId == %@", chatId)
         request.predicate = ruler
@@ -131,7 +133,6 @@ extension Message {
 //MARK: 默认查找器
 protocol SilkBagCatcher: NSManagedObject {
     
-    
 }
 
 extension SilkBagCatcher {
@@ -139,6 +140,13 @@ extension SilkBagCatcher {
     static var pureRequest: NSFetchRequest<Self> {
         let request = NSFetchRequest<Self>(entityName: entity().managedObjectClassName)
         request.sortDescriptors = []
+        return request
+    }
+    
+    //MARK: 空请求
+    static var emptyRequest: NSFetchRequest<Self> {
+        let request = NSFetchRequest<Self>(entityName: entity().managedObjectClassName)
+        request.predicate = NSPredicate.init(format: "1=0")
         return request
     }
     

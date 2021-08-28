@@ -16,18 +16,18 @@ enum HomeType {
 enum HomeRightItemType: String {
     case search = "magnifyingglass"
     case more = "ellipsis"
-    case publish = "message"
+    case seize = "pencil.and.outline"
     
     var systemIcon: UIImage? { UIImage.init(systemName: self.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight:.regular)) }
     var compassPath: String {
         
         switch self {
         case .search:
-            return Compass.Map.HomeMap.searchPush.actionPath
+            return Compass.HomeMap.searchPush.actionPath
         case .more:
-            return Compass.Map.HomeMap.popoverShow.actionPath
-        case .publish:
-            return Compass.Map.HomeMap.publishPush.actionPath
+            return Compass.HomeMap.popoverShow.actionPath
+        case .seize:
+            return Compass.HomeMap.seizePush.actionPath
         }
     }
 }
@@ -49,13 +49,13 @@ struct HomeTab: Equatable {
         [HomeTab(icon: UIImage(systemName: "house"),
                 seletedIcon: UIImage(systemName: "house.fill"),
                 name: Translate("Home"),
-                controller: BaseViewController(),
+                controller: ChatListViewController(),
                 rightItemTypes: (.search, .more)),
         HomeTab(icon: UIImage(systemName: "map"),
                 seletedIcon: UIImage(systemName: "map.fill"),
                 name: Translate("World"),
-                controller: BaseViewController(),
-                rightItemTypes: (nil, .publish))]
+                controller: SkitterViewController(),
+                rightItemTypes: (nil, .seize))]
     }
     
     static var workTab: [HomeTab] {
@@ -64,22 +64,45 @@ struct HomeTab: Equatable {
 }
 
 //MARK: Sidebar Action
-let kSidebarCellID = "side_bar_cell"
-
 struct HomeSidebarAction {
     
     let name: String
     let icon: UIImage?
     let tint: UIColor?
+    let compassPath: String?
     
     static var chatActions: [HomeSidebarAction] {
         
         let configuration = UIImage.SymbolConfiguration(pointSize: 23, weight:.regular)
-        return [HomeSidebarAction(name: Translate("My Account"), icon: UIImage.init(systemName: "person", withConfiguration: configuration), tint: 0x7100FF.color()),
-                HomeSidebarAction(name: Translate("Chat Settings"), icon: UIImage.init(systemName: "pencil.and.outline", withConfiguration: configuration), tint: 0xFFA633.color()),
-                HomeSidebarAction(name: Translate("Notifications"), icon: UIImage.init(systemName: "antenna.radiowaves.left.and.right", withConfiguration: configuration), tint: 0xFC633F.color()),
-                HomeSidebarAction(name: Translate("Privacy"), icon: UIImage.init(systemName: "lock", withConfiguration: configuration), tint: 0x24BF71.color()),
-                HomeSidebarAction(name: Translate("Contact Us"), icon: UIImage.init(systemName: "captions.bubble", withConfiguration: configuration), tint: 0xE846AD.color()),
-                HomeSidebarAction(name: Translate("About"), icon: UIImage.init(systemName: "info.circle", withConfiguration: configuration), tint: 0x3370FE.color())]
+        
+        return [HomeSidebarAction(name: Translate("My Account"),
+                                  icon: UIImage.init(systemName: "person", withConfiguration: configuration),
+                                  tint: 0x7100FF.color(),
+                                  compassPath: Compass.SettingMap.myAccountPush.actionPath),
+                
+                HomeSidebarAction(name: Translate("Chat Settings"),
+                                  icon: UIImage.init(systemName: "pencil.and.outline", withConfiguration: configuration),
+                                  tint: 0xFFA633.color(),
+                                  compassPath: Compass.SettingMap.chatSettingsPush.actionPath),
+                
+                HomeSidebarAction(name: Translate("Notifications"),
+                                  icon: UIImage.init(systemName: "antenna.radiowaves.left.and.right", withConfiguration: configuration),
+                                  tint: 0xFC633F.color(),
+                                  compassPath: Compass.SettingMap.notificationsPush.actionPath),
+                
+                HomeSidebarAction(name: Translate("Privacy"),
+                                  icon: UIImage.init(systemName: "lock", withConfiguration: configuration),
+                                  tint: 0x24BF71.color(),
+                                  compassPath: Compass.SettingMap.privacyPush.actionPath),
+                
+                HomeSidebarAction(name: Translate("Contact Us"),
+                                  icon: UIImage.init(systemName: "captions.bubble", withConfiguration: configuration),
+                                  tint: 0xE846AD.color(),
+                                  compassPath: Compass.SettingMap.contactUsPush.actionPath),
+                
+                HomeSidebarAction(name: Translate("About"),
+                                  icon: UIImage.init(systemName: "info.circle", withConfiguration: configuration),
+                                  tint: 0x3370FE.color(),
+                                  compassPath: Compass.SettingMap.aboutPush.actionPath)]
     }
 }

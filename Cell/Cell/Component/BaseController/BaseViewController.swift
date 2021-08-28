@@ -17,6 +17,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .dynamicColor(.white, .black)
+        title = Translate(NSStringFromClass(self.classForCoder).components(separatedBy: ".").last?.replacingOccurrences(of: "ViewController", with: ""))
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

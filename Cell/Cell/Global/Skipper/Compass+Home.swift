@@ -5,26 +5,26 @@
 //  Created by Noah on 2021/8/28.
 //
 
-import Foundation
+import UIKit
 
 extension Navigator {
     func equipHomeMap() {
-        handle(Compass.Map.homeAction.oceanPath, Compass.handleHomeAction)
+        handle(Compass.homeAction.oceanPath, Compass.handleHomeAction)
     }
 }
 
 extension Compass {
     fileprivate static var handleHomeAction: URLOpenHandlerFactory {
         { url, values, context in
-            guard let home = ship?.viewControllers.first as? HomeViewController,
+            guard let home = CellSkipper.ship?.viewControllers.first as? HomeViewController,
                   let action = url.urlValue?.lastPathComponent,
                   isNonnull(action) else {
                 return false
             }
             
-            switch Compass.Map.HomeMap.init(rawValue: action) {
+            switch Compass.HomeMap.init(rawValue: action) {
             case .goBackHome:
-                ship?.popToRootViewController(animated: true)
+                CellSkipper.ship?.popToRootViewController(animated: true)
             case .sidebarShow:
                 home.homeSidebar.show(true)
             case .sidebarHidden:
@@ -32,9 +32,9 @@ extension Compass {
             case .popoverShow:
                 CLog("popover show")
             case .searchPush:
-                CLog("search push")
-            case .publishPush:
-                CLog("publish push")
+                CellSkipper.ship?.pushViewController(SearchViewController(), animated: true)
+            case .seizePush:
+                CellSkipper.ship?.pushViewController(SeizeViewController(), animated: true)
             default:
                 return false
             }

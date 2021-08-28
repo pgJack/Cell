@@ -40,6 +40,21 @@
 		F16A54AB26D8BF6800ED522F /* URLPathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54A126D8BF6800ED522F /* URLPathComponent.swift */; };
 		F16A54AC26D8BF6800ED522F /* URLMatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54A226D8BF6800ED522F /* URLMatchResult.swift */; };
 		F16A54AE26D8BFDF00ED522F /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54AD26D8BFDF00ED522F /* Compass.swift */; };
+		F16A54B926DA287200ED522F /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54B826DA287200ED522F /* MyAccountViewController.swift */; };
+		F16A54BB26DA288000ED522F /* ChatSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54BA26DA288000ED522F /* ChatSettingsViewController.swift */; };
+		F16A54BD26DA289700ED522F /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54BC26DA289700ED522F /* NotificationsViewController.swift */; };
+		F16A54BF26DA28AF00ED522F /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54BE26DA28AF00ED522F /* PrivacyViewController.swift */; };
+		F16A54C226DA28CB00ED522F /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54C126DA28CB00ED522F /* ContactUsViewController.swift */; };
+		F16A54C426DA28DC00ED522F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54C326DA28DC00ED522F /* AboutViewController.swift */; };
+		F16A54C626DA368D00ED522F /* Compass+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54C526DA365500ED522F /* Compass+Setting.swift */; };
+		F16A54CC26DA37EC00ED522F /* SeizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54CB26DA37EC00ED522F /* SeizeViewController.swift */; };
+		F16A54CE26DA37FA00ED522F /* SkitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54CD26DA37FA00ED522F /* SkitterViewController.swift */; };
+		F16A54D026DA383A00ED522F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54CF26DA383A00ED522F /* SearchViewController.swift */; };
+		F16A54D226DA3BE200ED522F /* MyAccountEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54D126DA3BE200ED522F /* MyAccountEditViewController.swift */; };
+		F16A54D526DA412F00ED522F /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54D426DA412F00ED522F /* ChatListViewController.swift */; };
+		F16A54D726DA4CC500ED522F /* CellSkipper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54D626DA4CC500ED522F /* CellSkipper.swift */; };
+		F16A54DA26DA586B00ED522F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54D926DA586B00ED522F /* LoginViewController.swift */; };
+		F16A54DD26DA953800ED522F /* Compass+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A54DC26DA953800ED522F /* Compass+Basic.swift */; };
 		F197451526D745A8005A4E51 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197451326D745A8005A4E51 /* BaseNavigationController.swift */; };
 		F197452026D745C5005A4E51 /* HomeSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197451A26D745C5005A4E51 /* HomeSidebar.swift */; };
 		F197452126D745C5005A4E51 /* HomeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197451B26D745C5005A4E51 /* HomeBar.swift */; };
@@ -116,6 +131,21 @@
 		F16A54A126D8BF6800ED522F /* URLPathComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLPathComponent.swift; sourceTree = "<group>"; };
 		F16A54A226D8BF6800ED522F /* URLMatchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLMatchResult.swift; sourceTree = "<group>"; };
 		F16A54AD26D8BFDF00ED522F /* Compass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compass.swift; sourceTree = "<group>"; };
+		F16A54B826DA287200ED522F /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
+		F16A54BA26DA288000ED522F /* ChatSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSettingsViewController.swift; sourceTree = "<group>"; };
+		F16A54BC26DA289700ED522F /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		F16A54BE26DA28AF00ED522F /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		F16A54C126DA28CB00ED522F /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		F16A54C326DA28DC00ED522F /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F16A54C526DA365500ED522F /* Compass+Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Compass+Setting.swift"; sourceTree = "<group>"; };
+		F16A54CB26DA37EC00ED522F /* SeizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeizeViewController.swift; sourceTree = "<group>"; };
+		F16A54CD26DA37FA00ED522F /* SkitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkitterViewController.swift; sourceTree = "<group>"; };
+		F16A54CF26DA383A00ED522F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F16A54D126DA3BE200ED522F /* MyAccountEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountEditViewController.swift; sourceTree = "<group>"; };
+		F16A54D426DA412F00ED522F /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		F16A54D626DA4CC500ED522F /* CellSkipper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSkipper.swift; sourceTree = "<group>"; };
+		F16A54D926DA586B00ED522F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F16A54DC26DA953800ED522F /* Compass+Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Compass+Basic.swift"; sourceTree = "<group>"; };
 		F197451326D745A8005A4E51 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		F197451A26D745C5005A4E51 /* HomeSidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSidebar.swift; sourceTree = "<group>"; };
 		F197451B26D745C5005A4E51 /* HomeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBar.swift; sourceTree = "<group>"; };
@@ -175,7 +205,12 @@
 		B0297A1A26D6BECC00404D44 /* Space */ = {
 			isa = PBXGroup;
 			children = (
+				F16A54D826DA585700ED522F /* Login */,
 				B0297A1B26D6BF0E00404D44 /* Home */,
+				F16A54D326DA40EB00ED522F /* Chat */,
+				F16A54B126DA27B000ED522F /* Settings */,
+				F16A54C726DA36F700ED522F /* Search */,
+				F16A54C826DA370000ED522F /* World */,
 			);
 			path = Space;
 			sourceTree = "<group>";
@@ -185,7 +220,6 @@
 			children = (
 				F197451D26D745C5005A4E51 /* HomeViewController.swift */,
 				F197451F26D745C5005A4E51 /* HomeViewModel.swift */,
-				B07E3C5D26D9DBFD003C119B /* Compass+Home.swift */,
 				F197451E26D745C5005A4E51 /* HomeModel.swift */,
 				F197453726D75F22005A4E51 /* HomeSidebar */,
 				F197451926D745C5005A4E51 /* HomeBar */,
@@ -233,6 +267,7 @@
 		B0DC5A7A26BF0A64001FF29A /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				F16A54DB26DA94B000ED522F /* Skipper */,
 				B0DC5A7826BEF25B001FF29A /* GlobalConstant.swift */,
 				B07E3C5F26D9E04A003C119B /* GlobalSettings.swift */,
 				B07E3C6126D9E093003C119B /* GlobalTools.swift */,
@@ -287,6 +322,128 @@
 				F16A549726D8BF6800ED522F /* URLNavigator */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		F16A54B126DA27B000ED522F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54B226DA27EA00ED522F /* MyAccount */,
+				F16A54B326DA27F200ED522F /* ChatSettings */,
+				F16A54B426DA27FD00ED522F /* Notifications */,
+				F16A54B526DA280400ED522F /* Privacy */,
+				F16A54B626DA280A00ED522F /* ContactUs */,
+				F16A54B726DA281100ED522F /* About */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F16A54B226DA27EA00ED522F /* MyAccount */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54B826DA287200ED522F /* MyAccountViewController.swift */,
+				F16A54D126DA3BE200ED522F /* MyAccountEditViewController.swift */,
+			);
+			path = MyAccount;
+			sourceTree = "<group>";
+		};
+		F16A54B326DA27F200ED522F /* ChatSettings */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54BA26DA288000ED522F /* ChatSettingsViewController.swift */,
+			);
+			path = ChatSettings;
+			sourceTree = "<group>";
+		};
+		F16A54B426DA27FD00ED522F /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54BC26DA289700ED522F /* NotificationsViewController.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		F16A54B526DA280400ED522F /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54BE26DA28AF00ED522F /* PrivacyViewController.swift */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
+		F16A54B626DA280A00ED522F /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54C126DA28CB00ED522F /* ContactUsViewController.swift */,
+			);
+			path = ContactUs;
+			sourceTree = "<group>";
+		};
+		F16A54B726DA281100ED522F /* About */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54C326DA28DC00ED522F /* AboutViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		F16A54C726DA36F700ED522F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54CF26DA383A00ED522F /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F16A54C826DA370000ED522F /* World */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54CA26DA379F00ED522F /* Seize */,
+				F16A54C926DA371300ED522F /* Skitter */,
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+		F16A54C926DA371300ED522F /* Skitter */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54CD26DA37FA00ED522F /* SkitterViewController.swift */,
+			);
+			path = Skitter;
+			sourceTree = "<group>";
+		};
+		F16A54CA26DA379F00ED522F /* Seize */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54CB26DA37EC00ED522F /* SeizeViewController.swift */,
+			);
+			path = Seize;
+			sourceTree = "<group>";
+		};
+		F16A54D326DA40EB00ED522F /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54D426DA412F00ED522F /* ChatListViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		F16A54D826DA585700ED522F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54D926DA586B00ED522F /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F16A54DB26DA94B000ED522F /* Skipper */ = {
+			isa = PBXGroup;
+			children = (
+				F16A54D626DA4CC500ED522F /* CellSkipper.swift */,
+				F16A54DC26DA953800ED522F /* Compass+Basic.swift */,
+				B07E3C5D26D9DBFD003C119B /* Compass+Home.swift */,
+				F16A54C526DA365500ED522F /* Compass+Setting.swift */,
+			);
+			path = Skipper;
 			sourceTree = "<group>";
 		};
 		F197451126D745A8005A4E51 /* BaseController */ = {
@@ -555,9 +712,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16A54C626DA368D00ED522F /* Compass+Setting.swift in Sources */,
+				F16A54BD26DA289700ED522F /* NotificationsViewController.swift in Sources */,
 				F16A54A326D8BF6800ED522F /* UIViewController+TopMostViewController.swift in Sources */,
+				F16A54D226DA3BE200ED522F /* MyAccountEditViewController.swift in Sources */,
 				F197453F26D76DDC005A4E51 /* ScrollContext.swift in Sources */,
 				F197451526D745A8005A4E51 /* BaseNavigationController.swift in Sources */,
+				F16A54D526DA412F00ED522F /* ChatListViewController.swift in Sources */,
 				B0297A3226D6C52300404D44 /* SilkBag.xcdatamodel in Sources */,
 				F197452126D745C5005A4E51 /* HomeBar.swift in Sources */,
 				F16A54A826D8BF6800ED522F /* URLConvertible.swift in Sources */,
@@ -573,30 +734,41 @@
 				F16A54A526D8BF6800ED522F /* UIViewControllerType.swift in Sources */,
 				F197452326D745C5005A4E51 /* HomeViewController.swift in Sources */,
 				B0297A3F26D6C98B00404D44 /* Color+Easy.swift in Sources */,
+				F16A54CE26DA37FA00ED522F /* SkitterViewController.swift in Sources */,
 				B05E947326D6B08E00581666 /* Homeland.swift in Sources */,
 				F197452226D745C5005A4E51 /* HomeBarLayout.swift in Sources */,
 				F16A54A926D8BF6800ED522F /* URLMatcher.swift in Sources */,
 				B0297A3C26D6C98B00404D44 /* Any+Regular.swift in Sources */,
+				F16A54BF26DA28AF00ED522F /* PrivacyViewController.swift in Sources */,
+				F16A54DA26DA586B00ED522F /* LoginViewController.swift in Sources */,
 				F16A54AA26D8BF6800ED522F /* URLPatchComponentMatchResult.swift in Sources */,
 				F16A549026D88AB500ED522F /* UIView+Easy.swift in Sources */,
 				F197454726D7782A005A4E51 /* BaseViewController.swift in Sources */,
 				B0297A3A26D6C98B00404D44 /* FileManager+Easy.swift in Sources */,
 				B0297A3E26D6C98B00404D44 /* Any+JSON.swift in Sources */,
 				F16A54A426D8BF6800ED522F /* NavigatorProtocol.swift in Sources */,
+				F16A54C426DA28DC00ED522F /* AboutViewController.swift in Sources */,
 				B05E944F26D68B3D00581666 /* TheGate.swift in Sources */,
+				F16A54D026DA383A00ED522F /* SearchViewController.swift in Sources */,
 				F16A54AC26D8BF6800ED522F /* URLMatchResult.swift in Sources */,
+				F16A54C226DA28CB00ED522F /* ContactUsViewController.swift in Sources */,
 				B0B1142526D0BCDF000873EB /* Memory+SilkBag.swift in Sources */,
 				B0DC5A7926BEF25B001FF29A /* GlobalConstant.swift in Sources */,
+				F16A54BB26DA288000ED522F /* ChatSettingsViewController.swift in Sources */,
 				F16A54A626D8BF6800ED522F /* NavigatorDelegate.swift in Sources */,
+				F16A54CC26DA37EC00ED522F /* SeizeViewController.swift in Sources */,
 				F197453926D75F3C005A4E51 /* HomeSidebarLayout.swift in Sources */,
 				F16A54AB26D8BF6800ED522F /* URLPathComponent.swift in Sources */,
 				B0297A3126D6C52300404D44 /* Core.xcdatamodel in Sources */,
 				B07E3C6226D9E093003C119B /* GlobalTools.swift in Sources */,
+				F16A54D726DA4CC500ED522F /* CellSkipper.swift in Sources */,
 				B0DC5A7726BEDED4001FF29A /* SilkBag+Catcher.swift in Sources */,
 				B05E944D26D68A9300581666 /* main.swift in Sources */,
+				F16A54DD26DA953800ED522F /* Compass+Basic.swift in Sources */,
 				F197452426D745C5005A4E51 /* HomeModel.swift in Sources */,
 				B0DC5A7526BECF70001FF29A /* SilkBag+Entity.swift in Sources */,
 				F197452026D745C5005A4E51 /* HomeSidebar.swift in Sources */,
+				F16A54B926DA287200ED522F /* MyAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,14 @@
 
 import CoreData
 
+enum BagType: String {
+    case silkBag = "SilkBag"
+    case core = "Core"
+}
+
 struct Memory {
     
-    init(scroll skey: String? = nil, bag bkey: String?) {
+    init(scroll skey: String? = nil, bag bkey: String?, type: BagType = .silkBag) {
         
         _scrollKey = skey
         scroll = isNonnull(_scrollKey) ? UserDefaults(suiteName: _scrollKey) : nil
@@ -17,7 +22,7 @@ struct Memory {
         _bagKey = bkey
         if let tBagKey = _bagKey,
            tBagKey.count > 0 {
-            silkBagBox = NSPersistentCloudKitContainer(name: "SilkBag")
+            silkBagBox = NSPersistentCloudKitContainer(name: type.rawValue)
             silkBagBox?.persistentStoreDescriptions.first?.url = Memory.silkbagBoxURL(tBagKey)
             silkBagBox?.loadPersistentStores(completionHandler: { (storeDescription, error) in
                 if let nsError = error as NSError? {
@@ -41,7 +46,7 @@ struct Memory {
     var silkBag: NSManagedObjectContext? { silkBagBox?.viewContext }
     
     //MARK: 核心
-    private static let core = Memory(bag: "Core")
+    private static let core = Memory(bag: "Core", type:.core)
     static var coreBag: NSManagedObjectContext { core.silkBag! }
     static var coreScroll: UserDefaults { .standard }
 }

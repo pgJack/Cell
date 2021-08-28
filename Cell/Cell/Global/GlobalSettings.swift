@@ -17,14 +17,14 @@ public var MuteStatus: Bool {
 public var SkinStyle: UIUserInterfaceStyle {
     get {
         let stype = ScrollContext.appearence
-        if let currentStyle = Compass.ocean?.overrideUserInterfaceStyle,
+        if let currentStyle = CellSkipper.ocean?.overrideUserInterfaceStyle,
            currentStyle != stype {
-            Compass.ocean?.overrideUserInterfaceStyle = stype
+            CellSkipper.ocean?.overrideUserInterfaceStyle = stype
         }
         return stype
     }
     set {
         ScrollContext.appearence = newValue
-        Compass.ocean?.overrideUserInterfaceStyle = newValue
+        CellSkipper.ocean?.overrideUserInterfaceStyle = newValue
     }
 }

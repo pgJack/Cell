@@ -12,9 +12,7 @@ class Homeland: UIResponder, UIWindowSceneDelegate {
         
     var window: UIWindow? {
         didSet {
-            Compass.ocean = window
-            Compass.navigator?.equipBasicMap()
-            Compass.navigator?.equipHomeMap()            
+            CellSkipper.enterOcean(window)
         }
     }
     

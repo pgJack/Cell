@@ -36,8 +36,9 @@ private let kDefaultLanguageCode = "zh-Hanz"
 
 public var LanguageCode: String? { ScrollContext.language?.first ?? kDefaultLanguageCode }
 
-public func Translate(_ key: String) -> String {
-    NSLocalizedString(key, tableName: "Cell", comment: "")
+public func Translate(_ key: String?) -> String {
+    guard let key = key else { return "" }
+    return NSLocalizedString(key, tableName: "Cell", comment: "")
 }
 
 //MARK: Lay out

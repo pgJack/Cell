@@ -11,11 +11,10 @@ import CoreData
 extension Soul: SilkBagCatcher {
     
     @discardableResult
-    convenience init(_ viewContext: NSManagedObjectContext,
-                     sid: String,
+    convenience init(new sid: String,
                      account: String,
                      code: String) {
-        self.init(context: viewContext)
+        self.init(context: Memory.coreBag)
         soulId = sid
         soulAccount = account
         soulCode = code
@@ -26,11 +25,10 @@ extension Soul: SilkBagCatcher {
 extension Cell: SilkBagCatcher {
     
     @discardableResult
-    convenience init(_ viewContext: NSManagedObjectContext,
-                     cid: String,
+    convenience init(new cid: String,
                      spell: String,
                      of soul: Soul) {
-        self.init(context: viewContext)
+        self.init(context: Memory.coreBag)
         self.soul = soul
         cellId = cid
         cellSpell = spell
@@ -41,7 +39,7 @@ extension Cell: SilkBagCatcher {
 extension Chat: SilkBagCatcher {
     
     @discardableResult
-    convenience init(_ viewContext: NSManagedObjectContext,
+    convenience init(new viewContext: NSManagedObjectContext,
                      cid: String,
                      type: Int16,
                      of cell: Cell) {
@@ -56,7 +54,7 @@ extension Chat: SilkBagCatcher {
 extension Message: SilkBagCatcher {
     
     @discardableResult
-    convenience init(_ viewContext: NSManagedObjectContext,
+    convenience init(new viewContext: NSManagedObjectContext,
                      mid: String,
                      type: Int16,
                      ownerId: String,
