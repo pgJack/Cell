@@ -5,3 +5,18 @@
   Created by Noah on 2021/8/26.
   
 */
+
+"OK"="确定";
+"Login"="登录";
+"Home"="家园";
+"World"="世界";
+"My Account"="账户设置";
+"Chat Settings"="聊天设置";
+"Notifications"="通知设置";
+"Privacy"="隐私条款";
+"Contact Us"="反馈";
+"About"="关于";
+
+"Light"="光";
+"Dark"="暗";
+"Auto"="自动";

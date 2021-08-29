@@ -33,6 +33,10 @@ class LoginViewController: BaseViewController {
             
             let soul = Soul(new: UUID().uuidString, account: "123", code: "123")
             let cell = Cell(new: UUID().uuidString, spell: "123", of: soul)
+            
+            cell.name = "烟雨客"
+            cell.iconUrl = URL.init(string: "https://img1.baidu.com/it/u=3229045480,3780302107&fm=26&fmt=auto&gp=0.jpg")
+            
             Soul.awakedSoul = soul
             Cell.alivedCell = cell
             CellSkipper.coreBag?.sync()

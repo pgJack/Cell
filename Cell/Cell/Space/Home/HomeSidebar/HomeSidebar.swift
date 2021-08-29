@@ -58,9 +58,9 @@ class HomeSidebar: UIView {
     
     lazy var avatarView: UIImageView = {
         let imageView = UIImageView()
-        let configuration = UIImage.SymbolConfiguration(pointSize: 70, weight: .regular)
-        imageView.image = UIImage(systemName: "person.crop.circle.fill", withConfiguration: configuration)
         imageView.tintColor = .gray_DAE0E3
+        imageView.layer.cornerRadius = 36
+        imageView.layer.masksToBounds = true
         return imageView
     }()
     
@@ -97,7 +97,7 @@ class HomeSidebar: UIView {
     lazy var lightButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 12)
-        button.setTitle("Light", for: .normal)
+        button.setTitle(Translate("Light"), for: .normal)
         button.setTitleColor(.gray_8C959E , for: .normal)
         button.setTitleColor(.theme_white_dy, for: .selected)
         button.setImage(UIImage(systemName: "sun.max"), for: .normal)
@@ -109,7 +109,7 @@ class HomeSidebar: UIView {
     lazy var darkButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 12)
-        button.setTitle("Dark", for: .normal)
+        button.setTitle(Translate("Dark"), for: .normal)
         button.setTitleColor(.gray_8C959E , for: .normal)
         button.setTitleColor(.theme_white_dy, for: .selected)
         button.setImage(UIImage(systemName: "moon"), for: .normal)
@@ -121,7 +121,7 @@ class HomeSidebar: UIView {
     lazy var autoButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 12)
-        button.setTitle("Auto", for: .normal)
+        button.setTitle(Translate("Auto"), for: .normal)
         button.setTitleColor(.gray_8C959E , for: .normal)
         button.setTitleColor(.theme_white_dy, for: .selected)
         button.setImage(UIImage(systemName: "bolt.badge.a"), for: .normal)

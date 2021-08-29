@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreData
+import RxSwift
+import RxCocoa
 
 class CellSkipper {
     
@@ -17,11 +19,17 @@ class CellSkipper {
         shared._coreBag = Memory.coreBag
         shared._coreScroll = Memory.coreScroll
         
-        let key = Cell.alivedCell?.cellId?.md5
+        //MARK: Prepare Info & Memory & Ocean
         
+        let alivedCell = Cell.alivedCell
+                
+        shared.avatarRelay.accept(alivedCell?.iconUrl)
+        shared.nameRelay.accept(alivedCell?.name)
+        
+        let key = alivedCell?.cellId?.md5
+
         shared._memory = Memory(scroll: key, bag: key, type: .silkBag)
         
-        //MARK: Prepare Compass
         let root = key == nil ? LoginViewController() : HomeViewController()
         
         shared._ocean = ocean
@@ -55,4 +63,39 @@ class CellSkipper {
     static var memory: Memory? { shared._memory }
     static var coreBag: NSManagedObjectContext? { shared._coreBag }
     static var coreScroll: UserDefaults? { shared._coreScroll }
+    
+    //MARK: Bind Info
+    private var nameRelay: BehaviorRelay<String?> = BehaviorRelay(value: "")
+    static func bindNameView(_ view: UIView) {
+        if let nameLabel = view as? UILabel {
+            shared.nameRelay.asDriver().drive(nameLabel.rx.text).disposed(by: view.disposeBag)
+        } else if let nameButton = view as? UIButton {
+            shared.nameRelay.asDriver().drive(nameButton.rx.title(for: .normal)).disposed(by: view.disposeBag)
+        }
+    }
+    
+    private var avatarRelay = BehaviorRelay(value: URL(string: ""))
+    static func bindAvatarView(_ view: UIView, pointSize: CGFloat = 32) {
+        shared.avatarRelay.asDriver().drive(onNext: { iconUrl in
+            
+            let configuration = UIImage.SymbolConfiguration(pointSize: pointSize,
+                                                            weight: .regular)
+            let defaultIcon = UIImage(systemName: "person.crop.circle.fill",
+                                      withConfiguration: configuration)
+            
+            if iconUrl != nil {
+                if let iconView = view as? UIImageView {
+                    iconView.kf.setImage(with: iconUrl, placeholder: defaultIcon)
+                } else if let iconButton = view as? UIButton {
+                    iconButton.kf.setImage(with: iconUrl, for: .normal, placeholder: defaultIcon)
+                }
+            } else {
+                if let iconView = view as? UIImageView {
+                    iconView.image = defaultIcon
+                } else if let iconButton = view as? UIButton {
+                    iconButton.setImage(defaultIcon, for: .normal)
+                }
+            }
+        }).disposed(by: view.disposeBag)
+    }
 }

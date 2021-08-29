@@ -79,6 +79,8 @@ extension HomeViewModel {
     //MARK: Bind Navigation Bar
     func bindNavigationBar(_ navigationBar: HomeNavigationBar) {
         
+        CellSkipper.bindAvatarView(navigationBar.avatarView)
+        
         let disposeBag = navigationBar.disposeBag
         
         navigationBar.leftItemA.rx.tap.bind { _ in
@@ -130,6 +132,9 @@ extension HomeViewModel {
     
     //MARK: Bind Sidebar
     func bindSidebar(_ sidebar: HomeSidebar) {
+        
+        CellSkipper.bindNameView(sidebar.nameLabel)
+        CellSkipper.bindAvatarView(sidebar.avatarView, pointSize: 70)
         
         let disposeBag = sidebar.disposeBag
         
@@ -206,12 +211,9 @@ extension HomeViewModel: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-//        let action = sidebarActions[indexPath.row]
-//        if let compassPath = action.compassPath {
-//            Compass.navigator?.open(compassPath)
-//        }
-        Soul.awakedSoul = nil
-        Cell.alivedCell?.frozen()
-        CellSkipper.navigator?.open(Compass.entangle.oceanPath)
+        let action = sidebarActions[indexPath.row]
+        if let compassPath = action.compassPath {
+            CellSkipper.navigator?.open(compassPath)
+        }
     }
 }

@@ -19,8 +19,10 @@ class HomeNavigationBar: UIView {
     
     lazy var avatarView: UIImageView = {
         let imageView = UIImageView()
-        let configuration = UIImage.SymbolConfiguration(pointSize: 32, weight: .regular)
-        imageView.image = UIImage(systemName: "person.crop.circle.fill", withConfiguration: configuration)
+        imageView.layer.cornerRadius = 16
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor.white.cgColor
         return imageView
     }()
     
