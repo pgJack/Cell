@@ -23,19 +23,19 @@ extension Compass {
             
             switch Compass.SettingMap.init(rawValue: action) {
             case .myAccountEditPush:
-                CellSkipper.ship?.pushViewController(MyAccountEditViewController(), animated: true)
+                CellSkipper.navigator?.push(MyAccountEditViewController())
             case .myAccountPush:
-                CellSkipper.ship?.pushViewController(MyAccountViewController(), animated: true)
+                CellSkipper.navigator?.push(MyAccountViewController())
             case .chatSettingsPush:
-                CellSkipper.ship?.pushViewController(ChatSettingsViewController(), animated: true)
+                CellSkipper.navigator?.push(ChatSettingsViewController())
             case .notificationsPush:
-                CellSkipper.ship?.pushViewController(NotificationsViewController(), animated: true)
+                CellSkipper.navigator?.push(NotificationsViewController())
             case .privacyPush:
-                CellSkipper.ship?.pushViewController(PrivacyViewController(), animated: true)
+                CellSkipper.navigator?.push(PrivacyViewController())
             case .contactUsPush:
-                CellSkipper.ship?.pushViewController(ContactUsViewController(), animated: true)
+                CellSkipper.navigator?.push(ContactUsViewController())
             case .aboutPush:
-                CellSkipper.ship?.pushViewController(AboutViewController(), animated: true)
+                CellSkipper.navigator?.push(AboutViewController())
             default:
                 return false
             }

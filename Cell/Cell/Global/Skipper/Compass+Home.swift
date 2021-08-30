@@ -16,15 +16,13 @@ extension Navigator {
 extension Compass {
     fileprivate static var handleHomeAction: URLOpenHandlerFactory {
         { url, values, context in
-            guard let home = CellSkipper.ship?.viewControllers.first as? HomeViewController,
+            guard let home = CellSkipper.mainDock?.viewControllers.first as? HomeViewController,
                   let action = url.urlValue?.lastPathComponent,
                   isNonnull(action) else {
                 return false
             }
             
             switch Compass.HomeMap.init(rawValue: action) {
-            case .goBackHome:
-                CellSkipper.ship?.popToRootViewController(animated: true)
             case .sidebarShow:
                 home.homeSidebar.show(true)
             case .sidebarHidden:
@@ -32,9 +30,9 @@ extension Compass {
             case .popoverShow:
                 CLog("popover show")
             case .searchPush:
-                CellSkipper.ship?.pushViewController(SearchViewController(), animated: true)
+                CellSkipper.navigator?.push(SearchViewController())
             case .seizePush:
-                CellSkipper.ship?.pushViewController(SeizeViewController(), animated: true)
+                CellSkipper.navigator?.push(SeizeViewController())
             default:
                 return false
             }

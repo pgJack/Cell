@@ -77,6 +77,7 @@
 		F19AF6B326B7A84100C4145F /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AF6B226B7A84100C4145F /* Memory.swift */; };
 		F19AF6C126B7A84100C4145F /* CellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AF6C026B7A84100C4145F /* CellTests.swift */; };
 		F19AF6CC26B7A84100C4145F /* CellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AF6CB26B7A84100C4145F /* CellUITests.swift */; };
+		F1BE775B26DCAC5C007BA840 /* SoulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE775A26DCAC5C007BA840 /* SoulViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		F19AF6C726B7A84100C4145F /* CellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CellUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19AF6CB26B7A84100C4145F /* CellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellUITests.swift; sourceTree = "<group>"; };
 		F19AF6CD26B7A84100C4145F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1BE775A26DCAC5C007BA840 /* SoulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoulViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				F16A54D926DA586B00ED522F /* LoginViewController.swift */,
+				F1BE775A26DCAC5C007BA840 /* SoulViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				F197453F26D76DDC005A4E51 /* ScrollContext.swift in Sources */,
 				F197451526D745A8005A4E51 /* BaseNavigationController.swift in Sources */,
 				F16A54D526DA412F00ED522F /* ChatListViewController.swift in Sources */,
+				F1BE775B26DCAC5C007BA840 /* SoulViewController.swift in Sources */,
 				B0297A3226D6C52300404D44 /* SilkBag.xcdatamodel in Sources */,
 				F197452126D745C5005A4E51 /* HomeBar.swift in Sources */,
 				F16A54A826D8BF6800ED522F /* URLConvertible.swift in Sources */,

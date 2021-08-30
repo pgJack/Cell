@@ -13,20 +13,31 @@ class BaseNavigationController: UINavigationController {
         navigationBar.subviews.first?.alpha = alpha
     }
     
-    func defaultBarStyle() {
+    func setBarBackgroundColor(_ color: UIColor) {
+        navigationBar.barTintColor = color
+    }
+    
+    func setBarItemColor(_ color: UIColor) {
+        navigationBar.tintColor = color
+        navigationBar.titleTextAttributes = [.foregroundColor: color]
+    }
+    
+    func setDefaultBarAppearance() {
+        setBarAlpha(1)
+        setBarBackgroundColor(.theme_black_dy)
+        setBarItemColor(.white)
+    }
+    
+    func setDefaultBarStyle() {
         navigationBar.shadowImage = UIImage()
-        navigationBar.barTintColor = .theme_black_dy
-        navigationBar.tintColor = .white
-        navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationBar.isTranslucent = false
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        defaultBarStyle()
-        setBarAlpha(1)
+        setDefaultBarStyle()
+        setDefaultBarAppearance()
     }
 
     override func didReceiveMemoryWarning() {

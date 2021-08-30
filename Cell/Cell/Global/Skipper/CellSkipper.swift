@@ -34,7 +34,7 @@ class CellSkipper {
         
         shared._ocean = ocean
 
-        shared._ship = BaseNavigationController(rootViewController: root)
+        shared._dock = BaseNavigationController(rootViewController: root)
         shared._navigator = Navigator()
         
         shared._navigator?.equipBasicMap()
@@ -43,16 +43,16 @@ class CellSkipper {
         
         shared._ocean?.backgroundColor = .dynamicColor(.white, .black)
         shared._ocean?.tintColor = .theme_white_dy
-        shared._ocean?.rootViewController = shared._ship
+        shared._ocean?.rootViewController = shared._dock
     }
     
     //MARK: Compass
     private var _ocean: UIWindow?
-    private var _ship: BaseNavigationController?
+    private var _dock: BaseNavigationController?
     private var _navigator: Navigator?
     
     static var ocean: UIWindow? { shared._ocean }
-    static var ship: BaseNavigationController? { shared._ship }
+    static var mainDock: BaseNavigationController? { shared._dock }
     static var navigator: Navigator? { shared._navigator }
 
     //MARK: Memory
@@ -65,7 +65,7 @@ class CellSkipper {
     static var coreScroll: UserDefaults? { shared._coreScroll }
     
     //MARK: Bind Info
-    private var nameRelay: BehaviorRelay<String?> = BehaviorRelay(value: "")
+    private let nameRelay: BehaviorRelay<String?> = BehaviorRelay(value: "")
     static func bindNameView(_ view: UIView) {
         if let nameLabel = view as? UILabel {
             shared.nameRelay.asDriver().drive(nameLabel.rx.text).disposed(by: view.disposeBag)
@@ -74,7 +74,7 @@ class CellSkipper {
         }
     }
     
-    private var avatarRelay = BehaviorRelay(value: URL(string: ""))
+    private let avatarRelay = BehaviorRelay(value: URL(string: ""))
     static func bindAvatarView(_ view: UIView, pointSize: CGFloat = 32) {
         shared.avatarRelay.asDriver().drive(onNext: { iconUrl in
             

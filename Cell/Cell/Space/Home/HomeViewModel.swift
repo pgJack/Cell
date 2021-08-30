@@ -53,7 +53,6 @@ extension HomeViewModel {
                 return
             }
             
-            tHome.homeNavigationBar.nameLabel.text = tTab.name
             tHome.homeNavigationBar.rightItemTypes = tTab.rightItemTypes
             
             tHome.homeTabBar.items.forEach { item in
@@ -79,6 +78,7 @@ extension HomeViewModel {
     //MARK: Bind Navigation Bar
     func bindNavigationBar(_ navigationBar: HomeNavigationBar) {
         
+        CellSkipper.bindNameView(navigationBar.nameLabel)
         CellSkipper.bindAvatarView(navigationBar.avatarView)
         
         let disposeBag = navigationBar.disposeBag

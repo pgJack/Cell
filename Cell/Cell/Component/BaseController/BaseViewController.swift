@@ -14,6 +14,10 @@ class BaseViewController: UIViewController {
         _lastMarineGoods = marineGoods
     }
     
+    var dock: BaseNavigationController? {
+        navigationController as? BaseNavigationController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .dynamicColor(.white, .black)

@@ -13,7 +13,6 @@ enum Compass: String {
             
     case homeAction = "home/<action>"
     enum HomeMap:String {
-        case goBackHome = "goBackHome"
         case sidebarShow = "sidebarShow"
         case sidebarHidden = "sidebarHidden"
         case popoverShow = "popoverShow"

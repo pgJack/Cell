@@ -9,26 +9,50 @@ import UIKit
 
 class LoginViewController: BaseViewController {
     
+    let existButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(Translate("Exist Account"), for: .normal)
+        button.backgroundColor = .white
+        button.setTitleColor(.theme_black_dy, for: .normal)
+        button.layer.cornerRadius = 22
+        button.layer.masksToBounds = true
+        return button
+    }()
+    
     let loginButton: UIButton = {
         let button = UIButton()
-        button.setTitle(Translate("Login"), for: .normal)
+        button.setTitle(Translate("New Account"), for: .normal)
         button.backgroundColor = .white
-        button.setTitleColor(.theme, for: .normal)
+        button.setTitleColor(.theme_black_dy, for: .normal)
+        button.layer.cornerRadius = 22
+        button.layer.masksToBounds = true
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CellSkipper.ship?.setBarAlpha(0)
         
-        view.backgroundColor = .theme
-        title = nil
+        dock?.setBarItemColor(.white)
+        dock?.setBarBackgroundColor(.theme_black_dy)
+        
+        view.backgroundColor = .theme_black_dy
         
         view.addSubview(loginButton)
+        view.addSubview(existButton)
         loginButton.snp.makeConstraints { maker in
             maker.centerX.centerY.equalToSuperview()
-            maker.width.height.equalTo(200)
+            maker.width.equalTo(200)
+            maker.height.equalTo(44)
         }
+        existButton.snp.makeConstraints { maker in
+            maker.centerX.equalToSuperview()
+            maker.top.equalTo(loginButton.snp.bottom).offset(20)
+            maker.width.equalTo(200)
+            maker.height.equalTo(44)
+        }
+        existButton.rx.tap.bind { [weak self] _ in
+            self?.dock?.pushViewController(SoulViewController(), animated: true)
+        }.disposed(by: disposeBag)
         loginButton.rx.tap.bind { _ in
             
             let soul = Soul(new: UUID().uuidString, account: "123", code: "123")
@@ -46,6 +70,6 @@ class LoginViewController: BaseViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        .darkContent
+        .lightContent
     }
 }

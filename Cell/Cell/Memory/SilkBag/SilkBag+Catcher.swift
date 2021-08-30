@@ -22,7 +22,6 @@ extension Soul {
         set {
             awakedSoul?.awake = false
             newValue?.awake = true
-            Memory.coreBag.sync()
         }
     }
 }
@@ -54,13 +53,12 @@ extension Cell {
                 guard let cell = value as? Cell else { return }
                 cell.alive = cell.cellId == newValue?.cellId
             }
-            Memory.coreBag.sync()
         }
     }
     
     func frozen() {
         alive = false
-        Memory.coreBag.sync()
+        soul?.awake = false
     }
 }
 
@@ -151,10 +149,10 @@ extension SilkBagCatcher {
     }
     
     //MARK: 查找数据
-    static func finder(_ request: NSFetchRequest<Self>, viewContext: NSManagedObjectContext) -> [Self] {
+    static func finder(_ request: NSFetchRequest<Self>, viewContext: NSManagedObjectContext?) -> [Self] {
         
         do {
-            return try viewContext.fetch(request)
+            return try viewContext?.fetch(request) ?? []
         } catch {
             let nsError = error as NSError
             let errorLog = "error coredata find \(nsError), \(nsError.userInfo)"

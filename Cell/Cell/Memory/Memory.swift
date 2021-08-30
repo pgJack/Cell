@@ -22,7 +22,7 @@ struct Memory {
         _bagKey = bkey
         if let tBagKey = _bagKey,
            tBagKey.count > 0 {
-            silkBagBox = NSPersistentCloudKitContainer(name: type.rawValue)
+            silkBagBox = NSPersistentContainer(name: type.rawValue)
             silkBagBox?.persistentStoreDescriptions.first?.url = Memory.silkbagBoxURL(tBagKey)
             silkBagBox?.loadPersistentStores(completionHandler: { (storeDescription, error) in
                 if let nsError = error as NSError? {
@@ -42,7 +42,7 @@ struct Memory {
     //MARK: 锦囊
     private var _bagKey: String?
 
-    let silkBagBox: NSPersistentCloudKitContainer?
+    let silkBagBox: NSPersistentContainer?
     var silkBag: NSManagedObjectContext? { silkBagBox?.viewContext }
     
     //MARK: 核心

@@ -7,9 +7,15 @@
 */
 
 "OK"="确定";
+
 "Login"="登录";
-"Home"="家园";
-"World"="世界";
+
+"New Account" = "创建账号";
+"Exist Account" = "已有账号";
+
+"Home"="庭";
+"World"="景";
+
 "My Account"="账户设置";
 "Chat Settings"="聊天设置";
 "Notifications"="通知设置";

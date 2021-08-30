@@ -81,7 +81,7 @@ struct HomeSidebarAction {
                                   compassPath: Compass.SettingMap.myAccountPush.actionPath),
                 
                 HomeSidebarAction(name: Translate("Chat Settings"),
-                                  icon: UIImage.init(systemName: "gear ", withConfiguration: configuration),
+                                  icon: UIImage.init(systemName: "gear", withConfiguration: configuration),
                                   tint: 0xFFA633.color(),
                                   compassPath: Compass.SettingMap.chatSettingsPush.actionPath),
                 

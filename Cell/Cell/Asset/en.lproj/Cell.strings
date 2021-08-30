@@ -7,7 +7,10 @@
 */
 
 "OK"="OK";
+
 "Login"="Login";
+"Exist Account" = "Exist Account";
+
 "Home"="Home";
 "World"="World";
 "My Account"="My Account";
@@ -16,4 +19,3 @@
 "Privacy"="Privacy";
 "Contact Us"="Contact Us";
 "About"="About";
-
